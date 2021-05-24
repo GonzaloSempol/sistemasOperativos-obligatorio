@@ -1,3 +1,9 @@
 public class Vacunatorio {
-    private String agenda;
+    private String nombre;
+
+    public Vacunatorio(String nombre) {
+        this.nombre = nombre;
+    }
+    
+    
 }

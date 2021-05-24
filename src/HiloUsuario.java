@@ -28,12 +28,33 @@ public class HiloUsuario implements Runnable {
                     
         String inputLine;
         
-        do 
-        {
-            inputLine = in.readLine();
-            out.println(inputLine  + "  <-- Te escucho");//Respondemos al cliente un mensaje
-            System.out.println("El Cliente dice:" + inputLine);//Mostramos en pantalla lo que el cliente dice    
-        }while ((!inputLine.equals("fin"))); //Hasta que el cliente diga fin.
+        
+            out.println("Ingrese su ci:");
+            String ci = in.readLine();
+            out.println("Ingrese su departamento:");
+            String departamento = in.readLine();
+            
+            out.println(ci  + departamento + "  <-- Te escucho");//Respondemos al cliente un mensaje
+            
+            System.out.println("El Cliente dice:" + ci +" :" + departamento);//Mostramos en pantalla lo que el cliente dice   
+            
+            
+            //Validar CI
+            if (Server.personas.containsKey(ci))
+            {
+                out.println("Estas validado");
+                
+                Server.paraAgendar.add(Server.personas.get(ci));
+                
+                Server.paraAgendar.forEach(p -> {
+                    System.out.println(p.getCI());
+                });
+            }else{
+                out.println("Estas DENEGADO");
+            }
+            
+            
+       
         
         clientSocket.close();
         System.out.println("Se cierra el socket");
