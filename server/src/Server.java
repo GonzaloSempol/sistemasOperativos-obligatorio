@@ -11,22 +11,48 @@ import java.util.PriorityQueue;
 public class Server {
     
     public static Map<String, Persona> personas = new HashMap<>();
-    public static LinkedList<Persona> paraAgendar = new LinkedList<>();
-   
+    
+    public static Map<String, PriorityQueue> paraAgendar = new HashMap<>();
+    
+    
+    
+    
+    
     
     
     public static void main(String[] args) throws IOException {
         
         //Datos de prueba
         Vacunatorio vac1 = new Vacunatorio("Vacunatorio Antel Arena");
-        LinkedList<Vacunatorio> vacunatorios = new LinkedList<>();
-        vacunatorios.add(vac1);
-        Departamento depMontevideo = new Departamento("Montevideo", vacunatorios);
-        Persona persona1 = new Persona("111", depMontevideo, 25);
-        Persona persona2 = new Persona("222", depMontevideo, 90);
+        Vacunatorio vac2 = new Vacunatorio("Vacunatorio Pando");
+        LinkedList<Vacunatorio> vacunatoriosMvd = new LinkedList<>();
+        LinkedList<Vacunatorio> vacunatoriosCanelones = new LinkedList<>();
+        vacunatoriosMvd.add(vac1);
+        vacunatoriosCanelones.add(vac2);
+        Departamento depMontevideo = new Departamento("Montevideo", vacunatoriosMvd);
+        Departamento depCanelones = new Departamento("Canelones", vacunatoriosCanelones);
+        
+        Persona persona1 = new Persona("111", 25);
+        Persona persona2 = new Persona("222", 90);
+        Persona persona3 = new Persona("333", 90);
+        
         personas.put(persona1.getCI(), persona1);
         personas.put(persona2.getCI(), persona2);
+        personas.put(persona3.getCI(), persona3);
+        
+        
+        
+        //Cargamos los departamentos
+        paraAgendar.put(depMontevideo.getNombre(), new PriorityQueue<>());
+        paraAgendar.put(depCanelones.getNombre(), new PriorityQueue<>());
+        
+        
+        
+        
+        
         //Fin datos prueba
+        
+        //Para agendar
         
 
         try(           

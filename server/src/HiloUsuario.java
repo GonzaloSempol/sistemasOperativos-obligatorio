@@ -1,8 +1,7 @@
 
 import java.net.*;
 import java.io.*;
-import java.net.*;
-import java.io.*;
+import java.util.PriorityQueue;
 public class HiloUsuario implements Runnable {
 
     private String CI;
@@ -44,11 +43,21 @@ public class HiloUsuario implements Runnable {
             {
                 out.println("Estas validado");
                 
-                Server.paraAgendar.add(Server.personas.get(ci));
                 
-                Server.paraAgendar.forEach(p -> {
-                    System.out.println(p.getCI());
-                });
+                //Semaforo-Mutex!!!
+                PriorityQueue<Persona> colaDelDepartamento = Server.paraAgendar.get(departamento);
+                colaDelDepartamento.add(Server.personas.get(ci));
+                
+                //Hardcodeado cantidad
+                if(colaDelDepartamento.size() == 3)
+                {
+                    while(!colaDelDepartamento.isEmpty())
+                    {
+                        Persona p1 = colaDelDepartamento.poll();
+                        System.out.println(p1.getEdad());
+
+                    }
+                }
             }else{
                 out.println("Estas DENEGADO");
             }

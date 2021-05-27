@@ -9,4 +9,10 @@ public class Departamento {
         this.vacunatorios = v;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+    
+    
+
 }
