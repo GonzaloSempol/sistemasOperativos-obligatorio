@@ -32,15 +32,26 @@ public class Server {
         Departamento depMontevideo = new Departamento("Montevideo", vacunatoriosMvd);
         Departamento depCanelones = new Departamento("Canelones", vacunatoriosCanelones);
         
-        Persona persona1 = new Persona("111", 25);
-        Persona persona2 = new Persona("222", 90);
-        Persona persona3 = new Persona("333", 90);
-        
-        personas.put(persona1.getCI(), persona1);
-        personas.put(persona2.getCI(), persona2);
-        personas.put(persona3.getCI(), persona3);
         
         
+        //Cargamos personas en el hashmap
+        String[] h = ManejadorArchivosGenerico.leerArchivo("src/BDpersonas.csv");
+        for (int i=0; i<h.length; i++){
+            String lineas = h[i];
+            String[] parts = lineas.trim().split(";");
+
+            Persona p = new Persona(parts[0],Integer.parseInt(parts[1]));
+            personas.put(parts[0],p);
+
+
+        }
+       
+        
+
+
+        
+        
+          
         
         //Cargamos los departamentos
         paraAgendar.put(depMontevideo.getNombre(), new PriorityQueue<>());

@@ -8,6 +8,10 @@ public class Departamento {
         this.nombre= n;
         this.vacunatorios = v;
     }
+        public Departamento(String n){
+        this.nombre= n;
+        this.vacunatorios = new LinkedList<>();
+    }
 
     public String getNombre() {
         return nombre;

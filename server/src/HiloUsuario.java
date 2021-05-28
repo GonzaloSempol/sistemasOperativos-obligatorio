@@ -49,7 +49,7 @@ public class HiloUsuario implements Runnable {
                 colaDelDepartamento.add(Server.personas.get(ci));
                 
                 //Hardcodeado cantidad
-                if(colaDelDepartamento.size() == 3)
+                if(colaDelDepartamento.size() == 6)
                 {
                     while(!colaDelDepartamento.isEmpty())
                     {

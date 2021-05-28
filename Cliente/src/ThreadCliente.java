@@ -3,18 +3,35 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.lang.reflect.Array;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
-public class Cliente {
-     public static void main(String[] args) throws IOException 
-     {
-        
+public class ThreadCliente implements Runnable {
+     
+    public String hostName = "PC3310";
+    private String ci;
+    private String dep;
+    private int portNumber;
+    
+    public ThreadCliente(String ci, String dep, int portNumber) 
+    {
+        this.ci=ci;
+        this.dep=dep;
+        this.portNumber=portNumber;
+    
+    }
        
-        String hostName = "PC3310";
-        int portNumber = 81;
+        
 
+       
+
+    @Override
+    public void run() {
         try (
             Socket serverSocket = new Socket(hostName, portNumber);
             PrintWriter out =  new PrintWriter(serverSocket.getOutputStream(), true);
@@ -24,7 +41,27 @@ public class Cliente {
             System.out.println("Conectado al servidor: " + serverSocket.getRemoteSocketAddress() );
             String userInput;
             
+           
+           
                 
+                Thread.sleep(1000);
+                System.out.println("El server dice: " + in.readLine());
+                Thread.sleep(1000);
+                out.println(this.ci); //Mando info
+                Thread.sleep(1000);
+                System.out.println("El server dice: " + in.readLine());
+                Thread.sleep(1000);
+                out.println(this.dep); //Mando info
+                Thread.sleep(1000);
+                System.out.println("El server dice: " + in.readLine());
+                Thread.sleep(1000);
+                
+
+
+
+            
+            
+                /*
                 System.out.println("El server dice: " + in.readLine());
                 userInput = stdIn.readLine();
                 out.println(userInput); //Mando info
@@ -34,7 +71,7 @@ public class Cliente {
                 System.out.println("El server dice: " + in.readLine());
                 out.println(userInput); //Mando info
                 System.out.println("El server dice: " + in.readLine());
-                
+                */
             
             
         } catch (UnknownHostException e) {
@@ -45,7 +82,11 @@ public class Cliente {
                 hostName);
             System.exit(1);
          
-           }
+           } catch (InterruptedException ex) {
+            Logger.getLogger(ThreadCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
      
      }
 }
+
+
