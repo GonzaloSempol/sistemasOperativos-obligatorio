@@ -2,14 +2,19 @@
 import java.net.*;
 import java.io.*;
 import java.util.PriorityQueue;
+import java.util.concurrent.Semaphore;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 public class HiloUsuario implements Runnable {
 
     private String CI;
     private Departamento departamento;
     private Socket clientSocket;
+    private Semaphore semEscribirCanal;
  
-    public HiloUsuario(Socket socket) {
+    public HiloUsuario(Socket socket, Semaphore semEscribirCanal) {
         this.clientSocket = socket;
+        this.semEscribirCanal = semEscribirCanal;
     }
 
     
@@ -44,26 +49,37 @@ public class HiloUsuario implements Runnable {
                 out.println("Estas validado");
                 
                 
+            try {
                 //Semaforo-Mutex!!!
-                PriorityQueue<Persona> colaDelDepartamento = Server.paraAgendar.get(departamento);
-                colaDelDepartamento.add(Server.personas.get(ci));
+                //Uno por cada departamento, para que no escriban en la cola por dep a la vez.
+                Semaphore semDepartamento = Server.departamentos.get(departamento).getSemDepartamento();
+                semDepartamento.acquire();
+                    PriorityQueue<Persona> colaDelDepartamento = Server.paraAgendar.get(departamento);
+                    colaDelDepartamento.add(Server.personas.get(ci));
+                semDepartamento.release();
                 
                 //Hardcodeado cantidad
+                /*
                 if(colaDelDepartamento.size() == 6)
                 {
                     while(!colaDelDepartamento.isEmpty())
                     {
                         Persona p1 = colaDelDepartamento.poll();
-                        System.out.println(p1.getEdad());
+                        System.out.println(p1.getCI() + "-" + p1.getEdad());
 
                     }
                 }
+                */
+                
+            } catch (InterruptedException ex) {
+                Logger.getLogger(HiloUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
             }else{
                 out.println("Estas DENEGADO");
             }
             
             
-       
+            
         
         clientSocket.close();
         System.out.println("Se cierra el socket");

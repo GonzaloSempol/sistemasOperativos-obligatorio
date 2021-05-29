@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Queue;
 import java.util.PriorityQueue;
+import java.util.concurrent.Semaphore;
 
 public class Server {
     
@@ -14,13 +15,15 @@ public class Server {
     
     public static Map<String, PriorityQueue> paraAgendar = new HashMap<>();
     
+    public static Map<String, Departamento> departamentos = new HashMap<>();
     
     
     
     
     
     
-    public static void main(String[] args) throws IOException {
+    
+    public static void main(String[] args) throws IOException, InterruptedException {
         
         //Datos de prueba
         Vacunatorio vac1 = new Vacunatorio("Vacunatorio Antel Arena");
@@ -31,8 +34,8 @@ public class Server {
         vacunatoriosCanelones.add(vac2);
         Departamento depMontevideo = new Departamento("Montevideo", vacunatoriosMvd);
         Departamento depCanelones = new Departamento("Canelones", vacunatoriosCanelones);
-        
-        
+        departamentos.put(depCanelones.getNombre(), depCanelones);
+        departamentos.put(depMontevideo.getNombre(), depMontevideo);
         
         //Cargamos personas en el hashmap
         String[] h = ManejadorArchivosGenerico.leerArchivo("src/BDpersonas.csv");
@@ -46,11 +49,7 @@ public class Server {
 
         }
        
-        
-
-
-        
-        
+             
           
         
         //Cargamos los departamentos
@@ -69,16 +68,25 @@ public class Server {
         try(           
             ServerSocket AppSocket = new ServerSocket(81); //Creamos una instancia de serverSocket con el puerto deseado
             ){
-            
+                Reloj r = new Reloj();
+                HiloReloj hilor = new HiloReloj(r);
+                Thread threadHilor = new Thread(hilor);
+                threadHilor.start(); //cada 5 segundos abrimos la agenda
+
+                Semaphore semEscribirCanal = new Semaphore(1);
                 LinkedList<Thread> colaApp;
                 colaApp = new LinkedList<>();
 
                 System.out.println("El server está escuchando en el puerto: " + 81);
                 while(true){
+                   
                     Socket clientSocket = AppSocket.accept();   //Crea el socket, se bloquea y queda en LISTENING   
-                    Thread Hilo = new Thread(new HiloUsuario(clientSocket));
+                    Thread Hilo = new Thread(new HiloUsuario(clientSocket, semEscribirCanal));
                     Hilo.start(); //Esto lo haria el planificador luego
                     colaApp.add(Hilo);
+                    
+                    //System.out.println(r.instant());
+                    
                 }
 
             }
