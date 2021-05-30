@@ -11,7 +11,7 @@ import java.util.concurrent.Semaphore;
 
 public class Server {
     
-    public static Map<String, Persona> personas = new HashMap<>();
+    public static Map<String, Persona> personasHabilitadas = new HashMap<>();
     
     public static Map<String, PriorityQueue> paraAgendar = new HashMap<>();
     
@@ -44,7 +44,7 @@ public class Server {
             String[] parts = lineas.trim().split(";");
 
             Persona p = new Persona(parts[0],Integer.parseInt(parts[1]));
-            personas.put(parts[0],p);
+            personasHabilitadas.put(parts[0],p);
 
 
         }

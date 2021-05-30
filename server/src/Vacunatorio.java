@@ -51,6 +51,7 @@ public class Vacunatorio {
     public void agendar(Persona p){
         this.agenda.add(p);
         System.out.println("Se agenda: " + p.getCI() + " de edad: " + p.getEdad() + " en:" + this.nombre);
+        
     }
     //public getTengoLibre(date)
             

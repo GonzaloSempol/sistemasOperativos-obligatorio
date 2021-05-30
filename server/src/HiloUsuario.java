@@ -44,10 +44,26 @@ public class HiloUsuario implements Runnable {
             
             
             //Validar CI
-            if (Server.personas.containsKey(ci))
+            if (Server.personasHabilitadas.containsKey(ci))
             {
-                out.println("Estas validado");
                 
+                        
+                
+                Persona p = Server.personasHabilitadas.get(ci);
+                p.getSemPersona().acquire();
+                
+                if((p.getDosis() > 0)){
+                    out.println(p.getCI() + ": Ya vacunado"); 
+                    p.getSemPersona().release();
+                    return;
+                }else if (p.getEstaEnEspera()){
+                    out.println(p.getCI() + ": Ya esta en espera"); 
+                    p.getSemPersona().release();
+                    return;
+                }    
+                
+                    
+                out.println(p.getCI() + ": Su solicitud será procesada..."); //tengo ya las dosis? estoy en espera?
                 
             try {
                 //Semaforo-Mutex!!!
@@ -55,8 +71,12 @@ public class HiloUsuario implements Runnable {
                 Semaphore semDepartamento = Server.departamentos.get(departamento).getSemDepartamento();
                 semDepartamento.acquire();
                     PriorityQueue<Persona> colaDelDepartamento = Server.paraAgendar.get(departamento);
-                    colaDelDepartamento.add(Server.personas.get(ci));
+                    colaDelDepartamento.add(p);
                 semDepartamento.release();
+                p.setEstaEnEspera(true);
+                
+                p.getSemPersona().release();
+                
                 
                 //Hardcodeado cantidad
                 /*
@@ -75,7 +95,7 @@ public class HiloUsuario implements Runnable {
                 Logger.getLogger(HiloUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
             }else{
-                out.println("Estas DENEGADO");
+                out.println(ci + ": Su ci no está habilitada");
             }
             
             
@@ -88,7 +108,9 @@ public class HiloUsuario implements Runnable {
       {
         System.out.println("Exception caught when trying to listen on port " + 81 + " or listening for a connection");
         System.out.println(e.getMessage());
-      }
+      } catch (InterruptedException ex) {
+            Logger.getLogger(HiloUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
 
     }
