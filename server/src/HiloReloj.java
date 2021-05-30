@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  * @author gonzalo.sempol
  */
 public class HiloReloj implements Runnable {
-private int cantDiasAgenda=30;
+private int cantDiasAgenda=15;
 private int dias=0;
 private Reloj reloj;
 

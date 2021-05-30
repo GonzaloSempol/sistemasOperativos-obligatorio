@@ -17,7 +17,7 @@ public class Server {
     
     public static Map<String, Departamento> departamentos = new HashMap<>();
     
-    
+    public static Reloj r = new Reloj();
     
     
     
@@ -26,11 +26,13 @@ public class Server {
     public static void main(String[] args) throws IOException, InterruptedException {
         
         //Datos de prueba
-        Vacunatorio vac1 = new Vacunatorio("Vacunatorio Antel Arena");
-        Vacunatorio vac2 = new Vacunatorio("Vacunatorio Pando");
+        Vacunatorio vac1 = new Vacunatorio("Vacunatorio Antel Arena",2);
+        Vacunatorio vac2 = new Vacunatorio("Vacunatorio Pando",2);
+        Vacunatorio vac3 = new Vacunatorio("Vacunatorio Antel Arena 2",3);
         LinkedList<Vacunatorio> vacunatoriosMvd = new LinkedList<>();
         LinkedList<Vacunatorio> vacunatoriosCanelones = new LinkedList<>();
         vacunatoriosMvd.add(vac1);
+        vacunatoriosMvd.add(vac3);
         vacunatoriosCanelones.add(vac2);
         Departamento depMontevideo = new Departamento("Montevideo", vacunatoriosMvd);
         Departamento depCanelones = new Departamento("Canelones", vacunatoriosCanelones);
@@ -68,7 +70,7 @@ public class Server {
         try(           
             ServerSocket AppSocket = new ServerSocket(81); //Creamos una instancia de serverSocket con el puerto deseado
             ){
-                Reloj r = new Reloj();
+                
                 HiloReloj hilor = new HiloReloj(r);
                 Thread threadHilor = new Thread(hilor);
                 threadHilor.start(); //cada 5 segundos abrimos la agenda

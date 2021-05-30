@@ -1,12 +1,16 @@
 
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.SortedMap;
+import java.util.TreeMap;
 
 public class Vacunatorio {
     private String nombre;
     private int capacidadPorTurno;
-    private LinkedList<Persona> agenda;
+    
+    private SortedMap<Date, LinkedList<Persona>> agenda;
     
     /*
     private punteroAPrimerDiaConCapacidadDisponible;
@@ -19,7 +23,8 @@ public class Vacunatorio {
             tengo alguno con disponible?
             Si --> inserto en ese
     
-    24/4-->23/4-->22/4                
+                    
+    1/2-->3/2
     Elem-->Elem-->
     
     22/4
@@ -35,6 +40,10 @@ public class Vacunatorio {
         return nombre;
     }
 
+    public SortedMap<Date, LinkedList<Persona>> getAgenda() {
+        return agenda;
+    }
+
     public int getCapacidadPorTurno() {
         return capacidadPorTurno;
     }
@@ -42,15 +51,44 @@ public class Vacunatorio {
         
     
     
-    public Vacunatorio(String nombre) {
+    public Vacunatorio(String nombre, int capacidad) {
         this.nombre = nombre;
-        this.agenda = new LinkedList<>(); 
+        this.agenda = new TreeMap<>(); 
+        this.capacidadPorTurno = capacidad;
     }
     
     
     public void agendar(Persona p){
-        this.agenda.add(p);
-        System.out.println("Se agenda: " + p.getCI() + " de edad: " + p.getEdad() + " en:" + this.nombre);
+        this.agenda.get(agenda.lastKey()).add(p);
+        System.out.println("Se agenda: " + p.getCI() + " de edad: " + p.getEdad() + " en:" + this.nombre + " Para la fecha: " + agenda.lastKey());
+        
+    }
+    
+    public void crearFecha(Date f){
+        
+        Date nuevaFecha;
+       
+        if(agenda.isEmpty()){
+            nuevaFecha = new Date(f.getTime() + (1000 * 60 * 60 * 24));
+        }else{
+            
+               if (f.after(agenda.lastKey())){
+                 nuevaFecha = new Date(f.getTime() + (1000 * 60 * 60 * 24));
+                }else{
+                    nuevaFecha = new Date(agenda.lastKey().getTime() + (1000 * 60 * 60 * 24));
+                }
+        }
+        agenda.put(nuevaFecha, new LinkedList<>());
+    }
+    
+    public Boolean hayDisponibilidadMayorA(Date f){
+        if(agenda.isEmpty()){
+            return false;
+        }
+        else{
+            Date ultimaFecha = agenda.lastKey(); 
+            return ((f.before(ultimaFecha) && agenda.get(ultimaFecha).size() < capacidadPorTurno ));
+        }
         
     }
     //public getTengoLibre(date)
