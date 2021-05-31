@@ -31,8 +31,8 @@ public class HiloAgendar implements Runnable{
             while(!paraAgendarDpto.isEmpty()){
                 departamento.getSemDepartamento().acquire();
                 Persona p = paraAgendarDpto.remove();
-                departamento.agendar(p);
                 departamento.getSemDepartamento().release();
+                departamento.agendar(p);
             }
         
         

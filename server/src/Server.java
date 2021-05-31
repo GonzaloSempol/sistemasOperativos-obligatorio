@@ -18,13 +18,16 @@ public class Server {
     public static Map<String, Departamento> departamentos = new HashMap<>();
 
     public static Reloj r = new Reloj();
+    public static int[] rangos = {90,80,75,60,40,18};
+    public static int rangoActual=rangos[0];
+    
 
     public static void main(String[] args) throws IOException, InterruptedException {
 
         //Datos de prueba
-        Vacunatorio vac1 = new Vacunatorio("Vacunatorio Antel Arena", 2);
-        Vacunatorio vac2 = new Vacunatorio("Vacunatorio Pando", 2);
-        Vacunatorio vac3 = new Vacunatorio("Vacunatorio Antel Arena 2", 3);
+        Vacunatorio vac1 = new Vacunatorio("Vacunatorio Antel Arena", 10);
+        Vacunatorio vac2 = new Vacunatorio("Vacunatorio Pando", 10);
+        Vacunatorio vac3 = new Vacunatorio("Vacunatorio Antel Arena 2", 10);
         LinkedList<Vacunatorio> vacunatoriosMvd = new LinkedList<>();
         LinkedList<Vacunatorio> vacunatoriosCanelones = new LinkedList<>();
         vacunatoriosMvd.add(vac1);
@@ -56,7 +59,7 @@ public class Server {
 
         //Fin datos prueba
         //Para agendar
-       
+        System.out.println("El rango habilitado es mayores de: "+ Server.rangoActual + " años.");
         for(int p=81; p<=84; p++){
         
             HiloCanal hc = new HiloCanal(p);

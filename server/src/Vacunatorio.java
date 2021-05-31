@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.SortedMap;
 import java.util.TreeMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Vacunatorio {
     private String nombre;
@@ -61,7 +63,17 @@ public class Vacunatorio {
     public void agendar(Persona p){
         this.agenda.get(agenda.lastKey()).add(p);
         System.out.println("Se agenda: " + p.getCI() + " de edad: " + p.getEdad() + " en:" + this.nombre + " Para la fecha: " + agenda.lastKey());
-        
+        try {
+            p.getSemPersona().acquire();
+                p.setFechaVacuna(agenda.lastKey());
+                p.setEstaAgendada(true);
+                p.setEstaEnEspera(false);
+                p.setVacunatorio(this);
+            p.getSemPersona().release();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Vacunatorio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+           
     }
     
     public void crearFecha(Date f){

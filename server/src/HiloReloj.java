@@ -26,19 +26,36 @@ private Reloj reloj;
     
 @Override
     public void run() {
-        int i=0;
+      int i=0;
         while(true){
             try {
+                
+                
+                
                 Thread.sleep(1000);
                 System.out.println(reloj.instant().truncatedTo(ChronoUnit.DAYS));
                 dias++;
                 if(dias==cantDiasAgenda){
                     dias=0;
                     
-                    HiloAgendar h = new HiloAgendar(Server.departamentos.get("Montevideo"));
-                    Thread th = new Thread(h);
-                    th.start();
-                    System.out.println("Se comienza a agendar: " + reloj.instant().truncatedTo(ChronoUnit.DAYS));
+                    for(String d : Server.departamentos.keySet()){
+                        
+                        HiloAgendar h = new HiloAgendar(Server.departamentos.get(d));
+                        Thread th = new Thread(h);
+                        th.start();
+                        System.out.println("Se comienza a agendar en: "+ d +": " + reloj.instant().truncatedTo(ChronoUnit.DAYS));
+                        
+                        
+                        
+                        
+                    }
+                    
+                    if(i < Server.rangos.length -1 ){
+                            i++;
+                            Server.rangoActual=Server.rangos[i];
+                            System.out.println("El rango habilitado es mayores de: "+ Server.rangoActual + " años.");
+                    }
+                    
                     
                 }
                 

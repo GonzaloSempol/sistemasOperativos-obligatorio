@@ -45,15 +45,20 @@ public class HiloUsuario implements Runnable {
                 p.getSemPersona().acquire();
 
                 if ((p.getDosis() > 0)) {
-                    out.println(p.getCI() + ": Ya vacunado");
+                    out.println(p.getCI() + ": ERROR: Ya vacunado");
                     p.getSemPersona().release();
                 } else if (p.getEstaEnEspera()) {
-                    out.println(p.getCI() + ": Ya esta en espera");
+                    out.println(p.getCI() + ": ERROR: Ya esta en espera");
                     p.getSemPersona().release();
-
+                } else if (p.getEdad() < Server.rangoActual) {
+                    out.println(p.getCI() + ": ERROR: No está en el rango de edad habilitado");
+                    p.getSemPersona().release();
+                } else if(p.getEstaAgendada()){
+                    out.println(p.getCI() + ": ESTADO: Ya tiene fecha para: " + p.getFechaVacuna() + " en el vacunatorio: " + p.getVacunatorio().getNombre());
+                    p.getSemPersona().release();
                 } else {
 
-                    out.println(p.getCI() + ": Su solicitud será procesada..."); //tengo ya las dosis? estoy en espera?
+                    out.println(p.getCI() + ": CORRECTO: Su solicitud será procesada..."); //tengo ya las dosis? estoy en espera?
 
                     try {
                         //Semaforo-Mutex!!!
@@ -67,24 +72,14 @@ public class HiloUsuario implements Runnable {
 
                         p.getSemPersona().release();
 
-                        //Hardcodeado cantidad
-                        /*
-                    if(colaDelDepartamento.size() == 6)
-                    {
-                        while(!colaDelDepartamento.isEmpty())
-                        {
-                            Persona p1 = colaDelDepartamento.poll();
-                            System.out.println(p1.getCI() + "-" + p1.getEdad());
-
-                        }
-                    }
-                         */
+                        
                     } catch (InterruptedException ex) {
                         Logger.getLogger(HiloUsuario.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
 
-            } else {
+            }
+            {
                 out.println(ci + ": Su ci no está habilitada");
             }
 
@@ -92,7 +87,7 @@ public class HiloUsuario implements Runnable {
             System.out.println("Se cierra el socket");
 
         } catch (IOException e) {
-            System.out.println("Exception caught when trying to listen on port " + 81 + " or listening for a connection");
+            System.out.println("Exception caught when trying to listen on port " + clientSocket.getLocalPort() + " or listening for a connection");
             System.out.println(e.getMessage());
         } catch (InterruptedException ex) {
             Logger.getLogger(HiloUsuario.class.getName()).log(Level.SEVERE, null, ex);

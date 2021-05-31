@@ -1,4 +1,5 @@
 
+import java.util.Date;
 import java.util.concurrent.Semaphore;
 
 public class Persona implements Comparable{
@@ -6,8 +7,28 @@ public class Persona implements Comparable{
     private int edad;
     private Vacunatorio vacunatorio;
     private Boolean estaEnEspera;
+    private Boolean estaAgendada;
     private int dosis;
     private Semaphore semPersona;
+    private Date fechaVacuna;
+    
+
+    public void setEstaAgendada(Boolean estaAgendada) {
+        this.estaAgendada = estaAgendada;
+    }
+
+    public Boolean getEstaAgendada() {
+        return estaAgendada;
+    }
+
+    public Vacunatorio getVacunatorio() {
+        return vacunatorio;
+    }
+
+    public void setVacunatorio(Vacunatorio vacunatorio) {
+        this.vacunatorio = vacunatorio;
+    }
+    
     
 
     
@@ -17,8 +38,19 @@ public class Persona implements Comparable{
         this.dosis = 0;
         this.semPersona = new Semaphore(1);
         this.estaEnEspera=false;
+        this.estaAgendada=false;
+                
         
     }
+
+    public Date getFechaVacuna() {
+        return fechaVacuna;
+    }
+
+    public void setFechaVacuna(Date fechaVacuna) {
+        this.fechaVacuna = fechaVacuna;
+    }
+     
 
     public Semaphore getSemPersona() {
         return semPersona;
