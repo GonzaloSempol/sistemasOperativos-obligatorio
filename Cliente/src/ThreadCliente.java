@@ -44,7 +44,7 @@ public class ThreadCliente implements Runnable {
            
            
                 
-                Thread.sleep(1000);
+                Thread.sleep(2000);
                 System.out.println("El server dice: " + in.readLine());
                 Thread.sleep(1000);
                 out.println(this.ci); //Mando info
@@ -54,6 +54,8 @@ public class ThreadCliente implements Runnable {
                 out.println(this.dep); //Mando info
                 Thread.sleep(1000);
                 System.out.println("El server dice: " + in.readLine());
+                Thread.sleep(1000);
+                 System.out.println("El server dice: " + in.readLine());
                 Thread.sleep(1000);
                 
 

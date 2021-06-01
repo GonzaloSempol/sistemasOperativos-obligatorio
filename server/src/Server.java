@@ -25,9 +25,9 @@ public class Server {
     public static void main(String[] args) throws IOException, InterruptedException {
 
         //Datos de prueba
-        Vacunatorio vac1 = new Vacunatorio("Vacunatorio Antel Arena", 10);
-        Vacunatorio vac2 = new Vacunatorio("Vacunatorio Pando", 10);
-        Vacunatorio vac3 = new Vacunatorio("Vacunatorio Antel Arena 2", 10);
+        Vacunatorio vac1 = new Vacunatorio("Vacunatorio Antel Arena", 2);
+        Vacunatorio vac2 = new Vacunatorio("Vacunatorio Pando", 2);
+        Vacunatorio vac3 = new Vacunatorio("Vacunatorio Antel Arena 2", 2);
         LinkedList<Vacunatorio> vacunatoriosMvd = new LinkedList<>();
         LinkedList<Vacunatorio> vacunatoriosCanelones = new LinkedList<>();
         vacunatoriosMvd.add(vac1);
