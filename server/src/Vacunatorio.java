@@ -3,6 +3,7 @@ import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.logging.Level;
@@ -57,55 +58,62 @@ public class Vacunatorio {
         this.nombre = nombre;
         this.agenda = new TreeMap<>(); 
         this.capacidadPorTurno = capacidad;
+        Date fechaActual = Date.from(Server.r.instant());
+        for(int i=1; i<365; i++)
+        {
+            agenda.put(fechaActual, new LinkedList<>());
+            Date fecha = new Date(fechaActual.getTime()+ (1000 * 60 * 60 * 24) );
+            fechaActual=fecha;
+            System.out.println(fechaActual);
+        }
+         //  System.out.println(agenda.size());
     }
     
     
-    public void agendar(Persona p){
-        this.agenda.get(agenda.lastKey()).add(p);
-        System.out.println("Se agenda: " + p.getCI() + " de edad: " + p.getEdad() + " en:" + this.nombre + " Para la fecha: " + agenda.lastKey());
-        try {
-            p.getSemPersona().acquire();
-                p.setFechaVacuna(agenda.lastKey());
-                p.setEstaAgendada(true);
-                p.setEstaEnEspera(false);
-                p.setVacunatorio(this);
-            p.getSemPersona().release();
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Vacunatorio.class.getName()).log(Level.SEVERE, null, ex);
+    public void agendar(Persona p, Date fechaActual){
+              
+        
+        
+        SortedMap<Date, LinkedList<Persona>> AgendaConfechasMayoresAHoy = this.agenda.tailMap(fechaActual);
+        
+        Date fechaDisponible=null;
+        for( Map.Entry<Date, LinkedList<Persona>> f : AgendaConfechasMayoresAHoy.entrySet())
+        {
+            if (f.getValue().size() < this.capacidadPorTurno)
+            {
+                fechaDisponible=f.getKey();
+                this.agenda.get(fechaDisponible).add(p);
+                break;
+            }
+            
         }
+        if(fechaDisponible != null)
+        {
+            long dias28 =((long)1000 * (long)60 * (long)60 * (long)24 * (long)28);
+            Date fechaDosis2 = new Date(fechaDisponible.getTime() + dias28 );
+            
+            System.out.println("Se agenda: " + p.getCI() + " de edad: " + p.getEdad() + " en:" + this.nombre + " fecha Dosis 1: " + fechaDisponible + " fecha Dosis 2: " + fechaDosis2 );
+            try {
+                p.getSemPersona().acquire();
+                    p.setFechaDosis1(fechaDisponible);
+                    p.setFechaDosis2(fechaDosis2);
+                    p.setEstaAgendada(true);
+                    p.setEstaEnEspera(false);
+                    p.setVacunatorio(this);
+                p.getSemPersona().release();
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Vacunatorio.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+        
+        }
+        
+        
+        
+        
            
     }
     
-    public void crearFecha(Date f){
-        
-        Date nuevaFecha;
-       
-        if(agenda.isEmpty()){
-            nuevaFecha = new Date(f.getTime() + (1000 * 60 * 60 * 24));
-        }else{
-            
-               if (f.after(agenda.lastKey())){
-                 nuevaFecha = new Date(f.getTime() + (1000 * 60 * 60 * 24));
-                }else{
-                    nuevaFecha = new Date(agenda.lastKey().getTime() + (1000 * 60 * 60 * 24));
-                }
-        }
-        agenda.put(nuevaFecha, new LinkedList<>());
-    }
-    
-    public Boolean hayDisponibilidadMayorA(Date f){
-        if(agenda.isEmpty()){
-            return false;
-        }
-        else{
-            Date ultimaFecha = agenda.lastKey(); 
-            return ((f.before(ultimaFecha) && agenda.get(ultimaFecha).size() < capacidadPorTurno ));
-        }
-        
-    }
-    //public getTengoLibre(date)
-            
-    //public insertarEnDia(date)
     
     
 }

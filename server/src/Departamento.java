@@ -2,6 +2,8 @@
 import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Map;
+import java.util.SortedMap;
 import java.util.concurrent.Semaphore;
 
 public class Departamento {
@@ -32,37 +34,34 @@ public class Departamento {
 
     public void agendar(Persona p) {
 
-        Boolean pudeAgendar = false;
+        
         Date fechaActual = Date.from(Server.r.instant());
-
-        int i = 0;
-
-        while (!pudeAgendar && i < vacunatorios.size()) {
-            Vacunatorio v = vacunatorios.get(i);
-            if (v.hayDisponibilidadMayorA(fechaActual)) {
-                v.agendar(p);
-                pudeAgendar = true;
-            }
-            i++;
-
-        }
-        if (!pudeAgendar) {
-            Vacunatorio vacLibre = getVacunatorioMinDates();
-            vacLibre.crearFecha(fechaActual);
-            vacLibre.agendar(p);
-        }
+        Vacunatorio v = getVacunatorioMinDates(fechaActual);
+        v.agendar(p, new Date(fechaActual.getTime() + (1000 * 60 * 60 * 24 * 5)));
+        
 
     }
 
-    private Vacunatorio getVacunatorioMinDates() {
+    private Vacunatorio getVacunatorioMinDates(Date fechaActual) {
+        
+        
         int i = Integer.MAX_VALUE;
 
         Vacunatorio min = vacunatorios.getFirst(); //Agarramos uno cualquiera
         for (Vacunatorio v : vacunatorios) { //Buscamos el que tenga menos dias
-
-            if (v.getAgenda().size() < i) {
+            
+           
+            SortedMap<Date, LinkedList<Persona>> AgendaConfechasMayoresAHoy = v.getAgenda().tailMap(fechaActual);
+            int personasAnotadas=0;
+            for( Map.Entry<Date, LinkedList<Persona>> f : AgendaConfechasMayoresAHoy.entrySet())
+            {
+                personasAnotadas += f.getValue().size();
+                      
+            }   
+            
+            if (personasAnotadas < i) {
                 min = v;
-                i = v.getAgenda().size();
+                i = personasAnotadas;
             }
         }
         return min;

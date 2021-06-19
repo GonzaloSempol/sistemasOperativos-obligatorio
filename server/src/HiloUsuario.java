@@ -54,7 +54,7 @@ public class HiloUsuario implements Runnable {
                     out.println(p.getCI() + ": ERROR: No está en el rango de edad habilitado y no es de riesgo");
                     p.getSemPersona().release();
                 } else if(p.getEstaAgendada()){
-                    out.println(p.getCI() + ": ESTADO: Ya tiene fecha para: " + p.getFechaVacuna() + " en el vacunatorio: " + p.getVacunatorio().getNombre());
+                    out.println(p.getCI() + ": ESTADO: Ya tiene fecha para: " + p.getFechaDosis1() + " en el vacunatorio: " + p.getVacunatorio().getNombre());
                     p.getSemPersona().release();
                 } else {
 

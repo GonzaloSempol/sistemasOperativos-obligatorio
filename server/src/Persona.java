@@ -11,9 +11,18 @@ public class Persona implements Comparable{
     private Boolean estaAgendada;
     private int dosis;
     private Semaphore semPersona;
-    private Date fechaVacuna;
-    
+    private Date fechaDosis1;
+    private Date fechaDosis2;
 
+    public Date getFechaDosis2() {
+        return fechaDosis2;
+    }
+
+    public void setFechaDosis2(Date fechaDosis2) {
+        this.fechaDosis2 = fechaDosis2;
+    }
+    
+    
     public void setEstaAgendada(Boolean estaAgendada) {
         this.estaAgendada = estaAgendada;
     }
@@ -53,12 +62,12 @@ public class Persona implements Comparable{
         
     }
 
-    public Date getFechaVacuna() {
-        return fechaVacuna;
+    public Date getFechaDosis1() {
+        return fechaDosis1;
     }
 
-    public void setFechaVacuna(Date fechaVacuna) {
-        this.fechaVacuna = fechaVacuna;
+    public void setFechaDosis1(Date fechaDosis1) {
+        this.fechaDosis1 = fechaDosis1;
     }
      
 
