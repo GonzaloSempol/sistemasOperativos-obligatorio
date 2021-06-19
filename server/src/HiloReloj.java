@@ -22,7 +22,23 @@ private Reloj reloj;
         this.reloj = reloj;
     }
 
+public void repartirVacunas(int cantVacunas) 
+{
 
+    for(Departamento d : Server.departamentos.values())
+    {
+       
+        try {
+            d.getSemPersonasxDepartamento().acquire();
+            d.setVacunasDisponibles((int) Math.floor(d.getDensidadPoblacional() * cantVacunas));
+            d.getSemPersonasxDepartamento().release();
+       } catch (InterruptedException ex) {
+            Logger.getLogger(HiloReloj.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+    }
+
+}
     
 @Override
     public void run() {
@@ -38,12 +54,29 @@ private Reloj reloj;
                 if(dias==cantDiasAgenda){
                     dias=0;
                     
+                    switch(dias)
+                    {
+                        case 10:
+                            repartirVacunas(5);
+                            break;
+                        case 45:
+                           repartirVacunas(10);
+                           break;
+                        case 50:
+                            repartirVacunas(10);
+                            break;
+                        default:
+                            break;
+                         
+                    
+                    }
+                    
                     for(String d : Server.departamentos.keySet()){
                         
                         HiloAgendar h = new HiloAgendar(Server.departamentos.get(d));
                         Thread th = new Thread(h);
                         th.start();
-                        System.out.println("Se comienza a agendar en: "+ d +": " + reloj.instant().truncatedTo(ChronoUnit.DAYS));
+                        System.out.println("Disponibles se comienza a agendar en: "+ d +": " + reloj.instant().truncatedTo(ChronoUnit.DAYS));
                         
                         
                         

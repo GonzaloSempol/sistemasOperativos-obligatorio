@@ -28,12 +28,30 @@ public class HiloAgendar implements Runnable{
         try {
             
           
-            while(!paraAgendarDpto.isEmpty()){
-                departamento.getSemDepartamento().acquire();
-                Persona p = paraAgendarDpto.remove();
-                departamento.getSemDepartamento().release();
-                departamento.agendar(p);
+            departamento.getSemNumVacunas().acquire();
+            
+            Boolean necesitoAgendar = false;      
+            Persona p = null;
+            while(departamento.getVacunasDisponibles() > 1){
+                
+                departamento.getSemPersonasxDepartamento().acquire();
+                if (!paraAgendarDpto.isEmpty())
+                {                  
+                     p = paraAgendarDpto.remove();
+                     necesitoAgendar=true;
+                }
+                departamento.getSemPersonasxDepartamento().release();
+                if (necesitoAgendar)
+                {
+                    departamento.agendar(p);               
+                    departamento.setVacunasDisponibles(departamento.getVacunasDisponibles() - 2);
+                }    
+             
             }
+            
+            departamento.getSemNumVacunas().release();
+            
+            
         
         
         } catch (InterruptedException ex) {

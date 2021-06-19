@@ -10,26 +10,57 @@ public class Departamento {
 
     private String nombre;
     private LinkedList<Vacunatorio> vacunatorios;
-    private Semaphore semDepartamento;
+    private Semaphore semPersonasxDepartamento;
+    private Semaphore semNumVacunas;
+    private double densidadPoblacional;
+    private int vacunasDisponibles;
 
-    public Departamento(String n, LinkedList v) {
+    
+    
+    
+    public Departamento(String n, LinkedList v, float d) {
         this.nombre = n;
         this.vacunatorios = v;
-        this.semDepartamento = new Semaphore(1);
+        this.densidadPoblacional = d;
+        this.semNumVacunas = new Semaphore(1);
+        this.semPersonasxDepartamento = new Semaphore(1);
+    }
+    
+    public Semaphore getSemNumVacunas() {
+        return semNumVacunas;
     }
 
-    public Departamento(String n) {
-        this.nombre = n;
-        this.vacunatorios = new LinkedList<>();
-        this.semDepartamento = new Semaphore(1);
+        
+    
+    public int getVacunasDisponibles() {
+        return vacunasDisponibles;
     }
+
+    public void setVacunasDisponibles(int vacunasDisponibles) {
+        this.vacunasDisponibles = vacunasDisponibles;
+    }
+    
+    
+
+    public double getDensidadPoblacional() {
+        return densidadPoblacional;
+    }
+
+    public void setDensidadPoblacional(float densidadPoblacional) {
+        this.densidadPoblacional = densidadPoblacional;
+    }
+    
+    
+    
+    
+
 
     public String getNombre() {
         return nombre;
     }
 
-    public Semaphore getSemDepartamento() {
-        return semDepartamento;
+    public Semaphore getSemPersonasxDepartamento() {
+        return semPersonasxDepartamento;
     }
 
     public void agendar(Persona p) {

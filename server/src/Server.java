@@ -17,6 +17,8 @@ public class Server {
 
     public static Map<String, Departamento> departamentos = new HashMap<>();
 
+    
+    
     public static Reloj r = new Reloj();
     public static int[] rangos = {90,80,75,60,40,18};
     public static int rangoActual=rangos[0];
@@ -33,8 +35,8 @@ public class Server {
         vacunatoriosMvd.add(vac1);
         vacunatoriosMvd.add(vac3);
         vacunatoriosCanelones.add(vac2);
-        Departamento depMontevideo = new Departamento("Montevideo", vacunatoriosMvd);
-        Departamento depCanelones = new Departamento("Canelones", vacunatoriosCanelones);
+        Departamento depMontevideo = new Departamento("Montevideo", vacunatoriosMvd, 0.9f);
+        Departamento depCanelones = new Departamento("Canelones", vacunatoriosCanelones, 0.1f);
         departamentos.put(depCanelones.getNombre(), depCanelones);
         departamentos.put(depMontevideo.getNombre(), depMontevideo);
 

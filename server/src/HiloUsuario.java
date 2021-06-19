@@ -64,7 +64,7 @@ public class HiloUsuario implements Runnable {
                     try {
                         //Semaforo-Mutex!!!
                         //Uno por cada departamento, para que no escriban en la cola por dep a la vez.
-                        Semaphore semDepartamento = Server.departamentos.get(departamento).getSemDepartamento();
+                        Semaphore semDepartamento = Server.departamentos.get(departamento).getSemPersonasxDepartamento();
                         semDepartamento.acquire();
                         PriorityQueue<Persona> colaDelDepartamento = Server.paraAgendar.get(departamento);
                         colaDelDepartamento.add(p);
