@@ -44,7 +44,7 @@ public class Server {
             String lineas = h[i];
             String[] parts = lineas.trim().split(";");
 
-            Persona p = new Persona(parts[0], Integer.parseInt(parts[1]));
+            Persona p = new Persona(parts[0], Integer.parseInt(parts[1]),Boolean.parseBoolean(parts[2]) );
             personasHabilitadas.put(parts[0], p);
 
         }

@@ -5,6 +5,7 @@ import java.util.concurrent.Semaphore;
 public class Persona implements Comparable{
     private String CI;
     private int edad;
+    private Boolean esDeRiesgo;
     private Vacunatorio vacunatorio;
     private Boolean estaEnEspera;
     private Boolean estaAgendada;
@@ -28,13 +29,22 @@ public class Persona implements Comparable{
     public void setVacunatorio(Vacunatorio vacunatorio) {
         this.vacunatorio = vacunatorio;
     }
+
+    public Boolean getEsDeRiesgo() {
+        return esDeRiesgo;
+    }
+
+    public void setEsDeRiesgo(Boolean esDeRiesgo) {
+        this.esDeRiesgo = esDeRiesgo;
+    }
     
     
 
     
-     public Persona(String CI, int edad) {
+     public Persona(String CI, int edad, Boolean nivelDeRiesgo) {
         this.CI = CI;
         this.edad = edad;
+        this.esDeRiesgo=nivelDeRiesgo;
         this.dosis = 0;
         this.semPersona = new Semaphore(1);
         this.estaEnEspera=false;
@@ -88,12 +98,18 @@ public class Persona implements Comparable{
     @Override
     public int compareTo(Object o) {
         Persona otra = (Persona)o;
-        if(this.edad < otra.getEdad())
+        if(!this.esDeRiesgo && otra.getEsDeRiesgo())
             return 1;
-        if(this.edad == otra.getEdad())
-            return 0;
-        else
+        else if (this.esDeRiesgo && !otra.getEsDeRiesgo())
             return -1;
+        else{
+            if(this.edad < otra.getEdad())
+                return 1;
+            if(this.edad == otra.getEdad())
+                return 0;
+            else
+                return -1;
+        }
     }
     
 

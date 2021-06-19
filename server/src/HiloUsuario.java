@@ -50,8 +50,8 @@ public class HiloUsuario implements Runnable {
                 } else if (p.getEstaEnEspera()) {
                     out.println(p.getCI() + ": ERROR: Ya esta en espera");
                     p.getSemPersona().release();
-                } else if (p.getEdad() < Server.rangoActual) {
-                    out.println(p.getCI() + ": ERROR: No está en el rango de edad habilitado");
+                } else if ((p.getEdad() < Server.rangoActual) && (!p.getEsDeRiesgo())) {
+                    out.println(p.getCI() + ": ERROR: No está en el rango de edad habilitado y no es de riesgo");
                     p.getSemPersona().release();
                 } else if(p.getEstaAgendada()){
                     out.println(p.getCI() + ": ESTADO: Ya tiene fecha para: " + p.getFechaVacuna() + " en el vacunatorio: " + p.getVacunatorio().getNombre());
@@ -59,6 +59,7 @@ public class HiloUsuario implements Runnable {
                 } else {
 
                     out.println(p.getCI() + ": CORRECTO: Su solicitud será procesada..."); //tengo ya las dosis? estoy en espera?
+                    
 
                     try {
                         //Semaforo-Mutex!!!
