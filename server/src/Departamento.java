@@ -25,6 +25,12 @@ public class Departamento {
         this.semNumVacunas = new Semaphore(1);
         this.semPersonasxDepartamento = new Semaphore(1);
     }
+
+    public LinkedList<Vacunatorio> getVacunatorios() {
+        return vacunatorios;
+    }
+    
+    
     
     public Semaphore getSemNumVacunas() {
         return semNumVacunas;
@@ -68,7 +74,7 @@ public class Departamento {
         
         Date fechaActual = Date.from(Server.r.instant());
         Vacunatorio v = getVacunatorioMinDates(fechaActual);
-        v.agendar(p, new Date(fechaActual.getTime() + (1000 * 60 * 60 * 24 * 5)));
+        v.agendar(p, new Date(fechaActual.getTime() + (1000 * 60 * 60 * 24 * 5)), this.getNombre());
         
 
     }

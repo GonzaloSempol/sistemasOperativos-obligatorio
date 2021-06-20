@@ -1,6 +1,7 @@
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.Map;
@@ -70,7 +71,7 @@ public class Vacunatorio {
     }
     
     
-    public void agendar(Persona p, Date fechaActual){
+    public void agendar(Persona p, Date fechaActual, String nombreDepto){
               
         
         
@@ -83,6 +84,7 @@ public class Vacunatorio {
             {
                 fechaDisponible=f.getKey();
                 this.agenda.get(fechaDisponible).add(p);
+                
                 break;
             }
             
@@ -93,6 +95,23 @@ public class Vacunatorio {
             Date fechaDosis2 = new Date(fechaDisponible.getTime() + dias28 );
             
             System.out.println("Se agenda: " + p.getCI() + " de edad: " + p.getEdad() + " en:" + this.nombre + " fecha Dosis 1: " + fechaDisponible + " fecha Dosis 2: " + fechaDosis2 );
+               //
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(fechaDisponible);
+                Calendar cal2 = Calendar.getInstance();
+                cal2.setTime(fechaDosis2);
+                                
+                
+                //
+                try {
+                    Server.log.getSemLog().acquire();
+                        Server.log.registrar(cal.get(Calendar.MONTH), cal2.get(Calendar.MONTH), nombreDepto, this.getNombre(), p);
+                    Server.log.getSemLog().release();
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Vacunatorio.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                
             try {
                 p.getSemPersona().acquire();
                     p.setFechaDosis1(fechaDisponible);

@@ -16,14 +16,26 @@ public class Server {
     public static Map<String, PriorityQueue> paraAgendar = new HashMap<>();
 
     public static Map<String, Departamento> departamentos = new HashMap<>();
-
+    public static Log log;  
+    
     
     
     public static Reloj r = new Reloj();
     public static int[] rangos = {90,80,75,60,40,18};
     public static int rangoActual=rangos[0];
+    public static int i=0;
     
+    public static void aumentarRango()
+    {
+        if(i < Server.rangos.length -1 ){
+                i++;
+                Server.rangoActual=Server.rangos[i];
+                System.out.println("El rango habilitado es mayores de: "+ Server.rangoActual + " años.");
 
+        }
+    }
+    
+    
     public static void main(String[] args) throws IOException, InterruptedException {
 
         //Datos de prueba
@@ -39,7 +51,7 @@ public class Server {
         Departamento depCanelones = new Departamento("Canelones", vacunatoriosCanelones, 0.1f);
         departamentos.put(depCanelones.getNombre(), depCanelones);
         departamentos.put(depMontevideo.getNombre(), depMontevideo);
-
+        log = new Log();
         //Cargamos personas en el hashmap
         String[] h = ManejadorArchivosGenerico.leerArchivo("src/BDpersonas.csv");
         for (int i = 0; i < h.length; i++) {

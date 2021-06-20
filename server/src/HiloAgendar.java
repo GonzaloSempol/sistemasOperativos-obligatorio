@@ -45,6 +45,7 @@ public class HiloAgendar implements Runnable{
                 {
                     departamento.agendar(p);               
                     departamento.setVacunasDisponibles(departamento.getVacunasDisponibles() - 2);
+                    necesitoAgendar=false;
                 }    
              
             }

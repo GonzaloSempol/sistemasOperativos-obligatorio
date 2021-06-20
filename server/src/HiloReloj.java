@@ -29,9 +29,9 @@ public void repartirVacunas(int cantVacunas)
     {
        
         try {
-            d.getSemPersonasxDepartamento().acquire();
-            d.setVacunasDisponibles((int) Math.floor(d.getDensidadPoblacional() * cantVacunas));
-            d.getSemPersonasxDepartamento().release();
+            d.getSemNumVacunas().acquire();
+            d.setVacunasDisponibles( d.getVacunasDisponibles() + (int) Math.floor(d.getDensidadPoblacional() * cantVacunas));
+            d.getSemNumVacunas().release();
        } catch (InterruptedException ex) {
             Logger.getLogger(HiloReloj.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -39,39 +39,10 @@ public void repartirVacunas(int cantVacunas)
     }
 
 }
-    
-@Override
-    public void run() {
-      int i=0;
-        while(true){
-            try {
-                
-                
-                
-                Thread.sleep(1000);
-                System.out.println(reloj.instant().truncatedTo(ChronoUnit.DAYS));
-                dias++;
-                if(dias==cantDiasAgenda){
-                    dias=0;
-                    
-                    switch(dias)
-                    {
-                        case 10:
-                            repartirVacunas(5);
-                            break;
-                        case 45:
-                           repartirVacunas(10);
-                           break;
-                        case 50:
-                            repartirVacunas(10);
-                            break;
-                        default:
-                            break;
-                         
-                    
-                    }
-                    
-                    for(String d : Server.departamentos.keySet()){
+
+public void agendarBatch()
+{
+     for(String d : Server.departamentos.keySet()){
                         
                         HiloAgendar h = new HiloAgendar(Server.departamentos.get(d));
                         Thread th = new Thread(h);
@@ -83,14 +54,54 @@ public void repartirVacunas(int cantVacunas)
                         
                     }
                     
-                    if(i < Server.rangos.length -1 ){
-                            i++;
-                            Server.rangoActual=Server.rangos[i];
-                            System.out.println("El rango habilitado es mayores de: "+ Server.rangoActual + " años.");
+                    
+
+
+}
+
+
+    
+@Override
+    public void run() {
+     
+        while(true){
+            try {
+                
+                
+                
+                Thread.sleep(1000);
+                System.out.println(reloj.instant().truncatedTo(ChronoUnit.DAYS));
+                dias++;
+                
+                switch(dias)
+                    {
+                        case 10:
+                            repartirVacunas(5);
+                            System.out.println("Llegaron 5 vacunas");
+                            break;
+                        case 30:
+                            agendarBatch();
+                            Server.aumentarRango();
+                        case 45:
+                           repartirVacunas(10);
+                           System.out.println("Llegaron 10 vacunas");
+                           break;
+                        case 50:
+                            repartirVacunas(10);
+                            System.out.println("Llegaron 10 vacunas");
+                            break;
+                        case 60:
+                            agendarBatch();
+                            Server.aumentarRango();
+                        case 90:
+                            agendarBatch();
+                            Server.aumentarRango();
+                        default:
+                            break;
+                         
+                    
                     }
-                    
-                    
-                }
+               
                 
                 
                 
