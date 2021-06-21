@@ -37,7 +37,9 @@ public class HiloCanal implements Runnable {
 
                 Socket clientSocket = Socket.accept();   //Crea el socket, se bloquea y queda en LISTENING   
                 Thread Hilo = new Thread(new HiloUsuario(clientSocket));
+                Hilo.setPriority(Thread.MAX_PRIORITY -1);
                 Hilo.start(); //Esto lo haria el planificador luego
+                
 
                 
             }

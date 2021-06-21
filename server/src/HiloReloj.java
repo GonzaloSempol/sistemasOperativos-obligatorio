@@ -46,6 +46,7 @@ public void agendarBatch()
                         
                         HiloAgendar h = new HiloAgendar(Server.departamentos.get(d));
                         Thread th = new Thread(h);
+                        th.setPriority(Thread.MIN_PRIORITY);
                         th.start();
                         System.out.println("Disponibles se comienza a agendar en: "+ d +": " + reloj.instant().truncatedTo(ChronoUnit.DAYS));
                         

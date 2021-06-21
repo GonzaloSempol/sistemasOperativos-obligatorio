@@ -69,7 +69,9 @@ public class Server {
 
         HiloReloj hilor = new HiloReloj(r);
         Thread threadHilor = new Thread(hilor);
+        threadHilor.setPriority(Thread.MAX_PRIORITY);
         threadHilor.start(); //cada 5 segundos abrimos la agenda
+        
 
         //Fin datos prueba
         //Para agendar
@@ -78,6 +80,7 @@ public class Server {
         
             HiloCanal hc = new HiloCanal(p);
             Thread thc = new Thread(hc);
+            thc.setPriority(Thread.MAX_PRIORITY);
             thc.start();
         }
         
