@@ -65,7 +65,7 @@ public class Vacunatorio {
             agenda.put(fechaActual, new LinkedList<>());
             Date fecha = new Date(fechaActual.getTime()+ (1000 * 60 * 60 * 24) );
             fechaActual=fecha;
-            System.out.println(fechaActual);
+            //System.out.println(fechaActual);
         }
          //  System.out.println(agenda.size());
     }

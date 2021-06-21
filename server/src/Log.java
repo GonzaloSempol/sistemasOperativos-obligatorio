@@ -22,16 +22,20 @@ public class Log {
       this.log  = new HashMap<>();
       for(int i=0;i<12;i++)
       {
+          Map<String,Map<String,Registro>> nivel1 = new HashMap<>();
           for(Map.Entry<String, Departamento> d: Server.departamentos.entrySet())
           {
+            Map<String,Registro> nivel0 = new HashMap<>();
+            
             for(Vacunatorio v : d.getValue().getVacunatorios())
             {
-               Map<String,Registro> nivel0 = new HashMap<>();
+               
                nivel0.put(v.getNombre(), new Registro());
-               Map<String,Map<String,Registro>> nivel1 = new HashMap<>();
+               
+            }
+               
                nivel1.put(d.getKey(), nivel0);
                log.put(i, nivel1);
-            }
           }
       }
     }
