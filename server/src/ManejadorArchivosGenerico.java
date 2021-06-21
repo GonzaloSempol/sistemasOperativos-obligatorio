@@ -17,7 +17,7 @@ public class ManejadorArchivosGenerico {
     public static void escribirArchivo(String nombreCompletoArchivo, String[] listaLineasArchivo) {
         FileWriter fw;
         try {
-            fw = new FileWriter(nombreCompletoArchivo, false);
+            fw = new FileWriter(nombreCompletoArchivo, true);
             BufferedWriter bw = new BufferedWriter(fw);
             for (int i = 0; i < listaLineasArchivo.length; i++) {
                 String lineaActual = listaLineasArchivo[i];

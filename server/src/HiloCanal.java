@@ -39,6 +39,7 @@ public class HiloCanal implements Runnable {
                 Thread Hilo = new Thread(new HiloUsuario(clientSocket));
                 Hilo.setPriority(Thread.MAX_PRIORITY -1);
                 Hilo.start(); //Esto lo haria el planificador luego
+                Server.log.addSolRecibidas();
                 
 
                 

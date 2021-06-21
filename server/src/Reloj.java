@@ -17,6 +17,7 @@ import java.time.ZonedDateTime;
 public class Reloj extends Clock{
     
      private ZonedDateTime fechaInicial;
+     private ZonedDateTime fechaCovid;
 
 
     /**
@@ -24,6 +25,7 @@ public class Reloj extends Clock{
      */
     public Reloj() {
         fechaInicial = ZonedDateTime.now();
+        fechaCovid = ZonedDateTime.parse("2020-03-01T00:00:00.00-03:00[Asia/Calcutta]");
     }
 
 
@@ -48,7 +50,7 @@ public class Reloj extends Clock{
         // Difference between the starting point of this clock and 'now'.
         long delta = nowSeconds - beginSeconds;
         // Creates a datetime that is in the future.
-        return fechaInicial.plusDays(delta).toInstant();
+        return fechaCovid.plusDays(delta).toInstant();
     }
     
 }
