@@ -17,11 +17,13 @@ public class Registro {
     
     
     
+    
     public Registro() {
         this.deRiesgo = 0;
         this.personasPorRangos = new int[] {0,0,0,0,0,0};
         this.cantDosis1 = 0;
         this.cantDosis2 = 0;
+       
     }
 
     public int getDeRiesgo() {
@@ -55,6 +57,7 @@ public class Registro {
     public void addCantDosis2() {
         this.cantDosis2 ++;
     }
+    
     
     
     

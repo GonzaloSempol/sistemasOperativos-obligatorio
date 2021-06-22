@@ -24,20 +24,39 @@ private Reloj reloj;
         this.reloj = reloj;
     }
 
-public void repartirVacunas(int cantVacunas) 
+public void repartirVacunas(int cantVacunas, int mes) 
 {
-
+    int aRepartir = cantVacunas;
     for(Departamento d : Server.departamentos.values())
     {
        
         try {
             d.getSemNumVacunas().acquire();
-            d.setVacunasDisponibles( d.getVacunasDisponibles() + (int) Math.floor(d.getDensidadPoblacional() * cantVacunas));
+            aRepartir -= (int) Math.floor(d.getDensidadPoblacional() * cantVacunas);
+            int vacunasAsignadas = d.getVacunasDisponibles() + aRepartir ;        
+            d.setVacunasDisponibles(vacunasAsignadas);
             d.getSemNumVacunas().release();
+            
+            Server.log.getSemLogVac().acquire();
+                Server.log.addVacunasDepartamentoMes(d.getNombre(), mes, cantVacunas);
+            Server.log.getSemLogVac().release();
+            
        } catch (InterruptedException ex) {
             Logger.getLogger(HiloReloj.class.getName()).log(Level.SEVERE, null, ex);
         }
        
+    }
+    if(aRepartir > 0)
+    {
+        Departamento d = Server.departamentos.get("Montevideo");
+        try {
+            d.getSemNumVacunas().acquire();
+                d.setVacunasDisponibles(aRepartir + d.getVacunasDisponibles());
+            d.getSemNumVacunas().release();
+            
+        } catch (InterruptedException ex) {
+            Logger.getLogger(HiloReloj.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }
@@ -73,7 +92,7 @@ public void agendarBatch()
                 
                 
                 Thread.sleep(1000);
-                System.out.println(reloj.instant().truncatedTo(ChronoUnit.DAYS));
+                System.out.println( "DIA:" + dias + " " + reloj.instant().truncatedTo(ChronoUnit.DAYS));
                 dias++;
                 
                 Date fechaActual = Date.from(Server.r.instant());
@@ -83,7 +102,7 @@ public void agendarBatch()
                 switch(dias)
                     {
                         case 10:
-                            repartirVacunas(5);
+                            repartirVacunas(5,cal.get(Calendar.MONTH));
                             System.out.println("Llegaron 5 vacunas");
                             break;
                         case 30:
@@ -91,12 +110,12 @@ public void agendarBatch()
                             Server.aumentarRango();
                             break;
                         case 45:
-                           repartirVacunas(10);
+                           repartirVacunas(10,cal.get(Calendar.MONTH));
                            System.out.println("Llegaron 10 vacunas");
-                           Server.log.imprimirCSV(6);
+                           Server.log.imprimirCSV(cal.get(Calendar.MONTH));
                            break;
                         case 50:
-                            repartirVacunas(10);
+                            repartirVacunas(10,cal.get(Calendar.MONTH));
                             System.out.println("Llegaron 10 vacunas");
                             break;
                         case 60:
@@ -105,13 +124,13 @@ public void agendarBatch()
                             
                             break;
                         case 70:
-                            Server.log.imprimirCSV(7);
+                            Server.log.imprimirCSV(cal.get(Calendar.MONTH));
                         case 90:
                             agendarBatch();
                             Server.aumentarRango();
                             break;
                         case 95:
-                            Server.log.imprimirCSV(8);
+                            Server.log.imprimirCSV(cal.get(Calendar.MONTH));
                             break;
                         default:
                             break;

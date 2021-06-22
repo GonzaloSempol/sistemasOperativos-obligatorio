@@ -15,23 +15,33 @@ import java.util.concurrent.Semaphore;
 public class Log {
 
     private Map<Integer, Map<String, Map<String, Registro>>> log;
+    private Map<Integer, Map<String, Integer>> logVacunas;
     private long solRecibidas; 
     private Semaphore semLog;
+    private Semaphore semLogVac;
 
     public Log() {
         semLog = new Semaphore(1);
+        semLogVac=new Semaphore(1);
         this.log = new HashMap<>();
+        this.logVacunas = new HashMap<>();
         for (int i = 0; i < 12; i++) {
+            
+            Map<String, Integer> vacunasPorDepartamento = new HashMap<>();
             Map<String, Map<String, Registro>> nivel1 = new HashMap<>();
             for (Map.Entry<String, Departamento> d : Server.departamentos.entrySet()) {
                 Map<String, Registro> nivel0 = new HashMap<>();
-
+                
+                vacunasPorDepartamento.put(d.getKey(), 0);
+                
                 for (Vacunatorio v : d.getValue().getVacunatorios()) {
                     nivel0.put(v.getNombre(), new Registro());
                 }
 
                 nivel1.put(d.getKey(), nivel0);
                 log.put(i, nivel1);
+                
+                logVacunas.put(i, vacunasPorDepartamento);
             }
         }
     }
@@ -63,44 +73,47 @@ public class Log {
     }
     
     //Se imprimen DOSIS ADMINISTRADAS EN EL MES
+    //AGREGAR SEMAFORO
     public void imprimirCSV(int mes)
     {
         int cantRangos = Server.rangos.length;
-        String[] out = new String[6+cantRangos];
+        String[] out = new String[7+cantRangos];
         
         Map<String, Map<String, Registro>> logMes = log.get(mes);
         out[0]=String.valueOf(mes) + "; ";
-        out[1] += " ; "; 
-        out[2] += " ;de Riesgo"; 
+        out[1] += "; Vacunas recibidas";
+        out[2] += " ; "; 
+        out[3] += " ;de Riesgo"; 
         
         
         for(int j=0; j<cantRangos; j++)
         {
-            out[j+3] += " " +";"+"RANGO > " + Server.rangos[j] + " anos"; 
+            out[j+4] += " " +";"+"RANGO > " + Server.rangos[j] + " anos"; 
         }
         
-        out[3+cantRangos] += " " +";" + "Total 1era Dosis";
-        out[4+cantRangos] += " ;Total 2da Dosis";
-        out[5+cantRangos] += " ;Total Solicitudes Recibidas: " + this.solRecibidas;
+        out[4+cantRangos] += " " +";" + "Total 1era Dosis";
+        out[5+cantRangos] += " ;Total 2da Dosis";
+        out[6+cantRangos] += " ;Total Solicitudes Recibidas: " + this.solRecibidas;
         
         
         for (Map.Entry<String, Map<String, Registro>> d : logMes.entrySet()) {
                 out[0] += ";" + d.getKey();
+                out[1] += ";" + this.logVacunas.get(mes).get(d.getKey());
                 
                 for (Map.Entry<String, Registro> v : d.getValue().entrySet()){
                     
-                    out[1] += ";" + v.getKey();
-                    out[2] += ";" + v.getValue().getDeRiesgo();
+                    out[2] += ";" + v.getKey();
+                    out[3] += ";" + v.getValue().getDeRiesgo();
                     
                     for(int j=0; j<v.getValue().getPersonasPorRangos().length; j++)
                     {
-                        out[3+j] += ";" + v.getValue().getPersonasPorRangos()[j];
+                        out[4+j] += ";" + v.getValue().getPersonasPorRangos()[j];
                     
                     }
                     
                     
-                    out[3+cantRangos] += ";" + v.getValue().getCantDosis1();
-                    out[4+cantRangos] += ";" + v.getValue().getCantDosis2();
+                    out[4+cantRangos] += ";" + v.getValue().getCantDosis1();
+                    out[5+cantRangos] += ";" + v.getValue().getCantDosis2();
                 }
 
                
@@ -116,6 +129,22 @@ public class Log {
 
     public void addSolRecibidas() {
         this.solRecibidas++;
+    }
+
+    public Semaphore getSemLogVac() {
+        return semLogVac;
+    }
+    
+    
+    
+    public void addVacunasDepartamentoMes(String departamento, Integer mes, Integer cantVacunas )
+    {
+            Integer cantVacunasDepto = logVacunas.get(mes).get(departamento);
+            cantVacunasDepto += cantVacunas;
+            logVacunas.get(mes).replace(departamento, cantVacunasDepto);
+           
+    
+    
     }
 
 }

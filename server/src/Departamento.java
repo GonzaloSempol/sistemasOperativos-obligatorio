@@ -14,6 +14,7 @@ public class Departamento {
     private Semaphore semNumVacunas;
     private double densidadPoblacional;
     private int vacunasDisponibles;
+    
 
     
     
@@ -104,5 +105,6 @@ public class Departamento {
         return min;
 
     }
-
+    
+    
 }
