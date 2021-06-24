@@ -39,21 +39,32 @@ public class Server {
     public static void main(String[] args) throws IOException, InterruptedException {
 
         //Datos de prueba
-        Vacunatorio vac1 = new Vacunatorio("Vacunatorio Antel Arena", 2);
-        Vacunatorio vac2 = new Vacunatorio("Vacunatorio Pando", 2);
-        Vacunatorio vac3 = new Vacunatorio("Vacunatorio Antel Arena 2", 2);
-        LinkedList<Vacunatorio> vacunatoriosMvd = new LinkedList<>();
-        LinkedList<Vacunatorio> vacunatoriosCanelones = new LinkedList<>();
-        vacunatoriosMvd.add(vac1);
-        vacunatoriosMvd.add(vac3);
-        vacunatoriosCanelones.add(vac2);
-        Departamento depMontevideo = new Departamento("Montevideo", vacunatoriosMvd, 0.9f);
-        Departamento depCanelones = new Departamento("Canelones", vacunatoriosCanelones, 0.1f);
-        departamentos.put(depCanelones.getNombre(), depCanelones);
-        departamentos.put(depMontevideo.getNombre(), depMontevideo);
-        log = new Log();
+        //Cargamos los departamentos
+        String[] h = ManejadorArchivosGenerico.leerArchivo("src/Departamentos.csv");
+        
+        for (int i = 0; i < h.length; i++) {
+            String lineas = h[i];
+            String[] parts = lineas.trim().split(";");
+            Departamento dep = new Departamento(parts[0], Float.parseFloat(parts[1]));
+            departamentos.put(dep.getNombre(), dep);
+            paraAgendar.put(dep.getNombre(), new PriorityQueue<>());
+        }  
+       
+        //Cargamos los Vacunatorios
+        h = ManejadorArchivosGenerico.leerArchivo("src/Vacunatorios.csv");
+        
+        for (int i = 0; i < h.length; i++) {
+            String lineas = h[i];
+            String[] parts = lineas.trim().split(";");
+            Vacunatorio vac = new Vacunatorio(parts[1], Integer.parseInt(parts[2]));
+            departamentos.get(parts[0]).getVacunatorios().add(vac);
+        
+        }      
+        
+         
+        
         //Cargamos personas en el hashmap
-        String[] h = ManejadorArchivosGenerico.leerArchivo("src/BDpersonas.csv");
+        h = ManejadorArchivosGenerico.leerArchivo("src/BDpersonas.csv");
         for (int i = 0; i < h.length; i++) {
             String lineas = h[i];
             String[] parts = lineas.trim().split(";");
@@ -63,10 +74,8 @@ public class Server {
 
         }
 
-        //Cargamos los departamentos
-        paraAgendar.put(depMontevideo.getNombre(), new PriorityQueue<>());
-        paraAgendar.put(depCanelones.getNombre(), new PriorityQueue<>());
-
+        
+        log = new Log();
         HiloReloj hilor = new HiloReloj(r);
         Thread threadHilor = new Thread(hilor);
         threadHilor.setPriority(Thread.MAX_PRIORITY);

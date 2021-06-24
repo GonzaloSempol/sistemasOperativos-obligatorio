@@ -25,7 +25,7 @@ public class Reloj extends Clock{
      */
     public Reloj() {
         fechaInicial = ZonedDateTime.now();
-        fechaCovid = ZonedDateTime.parse("2020-03-01T00:00:00.00-03:00[Asia/Calcutta]");
+        fechaCovid = ZonedDateTime.parse("2021-01-31T00:00:00.00-03:00[Asia/Calcutta]");
     }
 
 

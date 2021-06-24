@@ -43,25 +43,29 @@ public class ThreadCliente implements Runnable {
             
            
            
-                
-                Thread.sleep(2000);
+                //Thread.sleep(2000);
+               /* while(in.readLine() == null)
+                {
+                   
+                }*/
                 System.out.println("El server dice: " + in.readLine());
-                Thread.sleep(1000);
                 out.println(this.ci); //Mando info
-                Thread.sleep(1000);
-                System.out.println("El server dice: " + in.readLine());
-                Thread.sleep(1000);
-                out.println(this.dep); //Mando info
-                Thread.sleep(1000);
-                System.out.println("El server dice: " + in.readLine());
-                Thread.sleep(1000);
-                 System.out.println("El server dice: " + in.readLine());
-                Thread.sleep(1000);
                 
-
-
-
-            
+                System.out.println("El server dice: " + in.readLine());
+                out.println(this.dep); //Mando info
+                
+                System.out.println("El server dice: " + in.readLine());
+                
+               /* while(in.readLine() != null)
+                {
+                    
+                }
+                while(in.readLine() != null)
+                {                     
+                    
+                }*/
+                
+                           
             
                 /*
                 System.out.println("El server dice: " + in.readLine());
@@ -84,9 +88,7 @@ public class ThreadCliente implements Runnable {
                 hostName);
             System.exit(1);
          
-           } catch (InterruptedException ex) {
-            Logger.getLogger(ThreadCliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
+           }
      
      }
 }

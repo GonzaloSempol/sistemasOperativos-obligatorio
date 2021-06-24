@@ -1,52 +1,26 @@
-6; ;Canelones;Montevideo
-null; Vacunas recibidas;0;0
-null ; ;Vacunatorio Pando;Vacunatorio Antel Arena;Vacunatorio Antel Arena 2
-null ;de Riesgo;0;0;0
-null ;RANGO > 90 anos;0;0;0
-null ;RANGO > 80 anos;0;0;0
-null ;RANGO > 75 anos;0;0;0
-null ;RANGO > 60 anos;0;0;0
-null ;RANGO > 40 anos;0;0;0
-null ;RANGO > 18 anos;0;0;0
-null ;Total 1era Dosis;0;0;0
-null ;Total 2da Dosis;0;0;0
-null ;Total Solicitudes Recibidas: 0
-6; ;Canelones;Montevideo
-null; Vacunas recibidas;0;0
-null ; ;Vacunatorio Pando;Vacunatorio Antel Arena;Vacunatorio Antel Arena 2
-null ;de Riesgo;0;0;0
-null ;RANGO > 90 anos;0;0;0
-null ;RANGO > 80 anos;0;0;0
-null ;RANGO > 75 anos;0;0;0
-null ;RANGO > 60 anos;0;0;0
-null ;RANGO > 40 anos;0;0;0
-null ;RANGO > 18 anos;0;0;0
-null ;Total 1era Dosis;0;0;0
-null ;Total 2da Dosis;0;0;0
-null ;Total Solicitudes Recibidas: 0
-7; ;Canelones;Montevideo
-null; Vacunas recibidas;0;0
-null ; ;Vacunatorio Pando;Vacunatorio Antel Arena;Vacunatorio Antel Arena 2
-null ;de Riesgo;0;0;0
-null ;RANGO > 90 anos;0;0;0
-null ;RANGO > 80 anos;0;0;0
-null ;RANGO > 75 anos;0;0;0
-null ;RANGO > 60 anos;0;0;0
-null ;RANGO > 40 anos;0;0;0
-null ;RANGO > 18 anos;0;0;0
-null ;Total 1era Dosis;0;0;0
-null ;Total 2da Dosis;0;0;0
-null ;Total Solicitudes Recibidas: 0
-8; ;Canelones;Montevideo
-null; Vacunas recibidas;0;0
-null ; ;Vacunatorio Pando;Vacunatorio Antel Arena;Vacunatorio Antel Arena 2
-null ;de Riesgo;0;0;0
-null ;RANGO > 90 anos;0;0;0
-null ;RANGO > 80 anos;0;0;0
-null ;RANGO > 75 anos;0;0;0
-null ;RANGO > 60 anos;0;0;0
-null ;RANGO > 40 anos;0;0;0
-null ;RANGO > 18 anos;0;0;0
-null ;Total 1era Dosis;0;0;0
-null ;Total 2da Dosis;0;0;0
-null ;Total Solicitudes Recibidas: 0
+Febrero; ;Artigas;Colonia;Salto;Rocha;Treinta y Tres;Soriano;Canelones;Florida;Cerro Largo;Flores;San Jose;Lavalleja;Rio Negro;Tacuarembo;Durazno;Rivera;Maldonado;Montevideo;Paysandu
+null; Vacunas recibidas;3839;5759;7679;3839;1919;5759;30719;3839;5759;1919;5759;3839;3839;5759;3839;5759;9600;76817;5759
+null ; ;Hospital ASSESubCP Bella Union;Centro Tisiologico;Auditorio Municipal;Salon Comunal;Hospital Samuel Berton CHLA-EP;Centro Auxiliar ASSE;Hospital Evangelico;Hospital ASSE;Sede secundaria CCOU;Hospital ASSE CP Rosario;Villa Constitucion ASSE;Villa Constitucion Policlinica ASSE;Sindicato Medico ;Valetin Policlinica Local;LOCAL COMERCIAL Dr Soca y Brasil;HOSPITAL DE AGUDOS;Belen Policlinica CAM;Hospital del chuy;Hospital Castillos;Hospital Lascano;COMERO; Centro Cultural La Paloma;Hospital Rocha;Hospital Chuy;Hospoital Vergara;Centro Social Democratico;Estadio Municipal Centro Empleados de Comercio;Santa Clara del Olimar Centro Auxiliar de ASSE;La Charqueada Policlinica de ASSE;Hospital Dolores;Hospital Dolores 2;Mercedes CHLAEP;Cardona CAMS;Circulo Catolico Cardona;Dolores CAMS;Vista Linda Centro de barrio;MUCAM;Country ASSE;Asoc. Espanola;Centro Salud ASSE;CAAMEPA;SAPP;Salvador Allende;Centro Cultural Casa Artigas;SMI;Municipio;Hospital Pando;COMECA;Las Piedras Circulo Catolico;Club Social;Centro Auxiliar;Aeropuerto Auto Vacunatorio;CRAMI;Polideportivo IMM Las Piedras;ASSE;CP Canelones;Cerro Colorado Policlinica;Mendoza Grande Policlinica ASSE;Hospital ASSE CP Florida CHLAEP;Capilla del Sauce Policlinica;Sub CP Sdi Grande ASSE;Club 25 de agosto;Casupa Policlinica ASSE;Policlinico COMEF;UTU Gimnasio;Club Uruguay;Plaza de Deportes;Policlinica de ASSE;Ismael Cortinas Policlinica ASSE;Plaza de Deportes;Colonia Etchepare;Comision profomento Delta del Tigre;Local ex Garelli;Club de Jubilados y Pensionistas;Ciudad Rodriguez Plaza de Deportes ;Centro Proteccion de Choferes;Club de abuelos y adultos mayores;Policlinica AMSJ;Libertad Hospital ASSE;Jose Pedro varela Centro Auxiliar;Local espacio adolescente;Jose Batlle y Ordonez Centro Auxiliar;Mariscala Policliinica CAMDEL;Minas Estadio Municipal;Plaza Las Mujeres;Young CAMY Pediatria;Young Policlinica de ASSE;Bellaco Policlinica de ASSE;Fray Bentos Hospital ASSE;San Javier Policlinia de ASSE;Pazo de la Cruz Policlinica de ASSE;Policlinica de ASSElaza Las Mujeres;Hospital de Tacuarembo ;COMPLEJO BARRIOS AMORÍN;Clinica Fisioterapia;Paso de los Toros COMTA;Villa Ansina Municipio ;Las Toscas de Caraguata Polideportivo ;San Gregorio de Polanco Centro de Salud ;CP Durazno CHALEP;CAMEDUR;Hospital Dr. Emilio Penza;Sub CP Sarandi del Yi CHLAEP;Villa del Carmen Policlinica;Policlinica Blanquillo;La Paloma Policlinica;Villa del Carmen Policlinica 2;San Jorge Policlinica;Casa de la Cultura;Hospital ASSE Minas de Corrales;COMERI;CASMER;Vichadero Policlinica ASSE;Tranqueras Policlinica de ASSE;HTAL AIGUA;Pueblo Eden Centro Comunal;Policlinica AMDM-IAMPP;CAMPUS Puesto;CEDEMCAR;Jose Ignacio Policlinica de ASSE;Hospital Pan de Azucar;ANTEL ARENA 1;Hospital Militar;ANTEL ARENA 2;UNIVERSAL;Hospital de Clinicas C;Hospital de Clinicas B;Hospital de Clinicas A;Hospital Pereira Rossell;Asociacion Espanola;ANTEL ARENA 3;C.A.P. Grupo de Artilleria No. 1;Hospital Policial;ANTEL ARENA 4;Rural del Prado;ANTEL ARENA 5;Centro de Salud Cerro;Fondo Nacional de Recursos;Colegio Medico;CASMU;Sanatorio Casa de Galicia;COSEM Malvin;Circulo Catolico;Hospital Evangelico;Asociacion Espanola 2;Hospital Britanico;SMI IMPASA;CUDAM;C.A.P. Brigada de Infanteria No. 1;Policlinica Zully Sanchez;Hospital Maciel;IMM Complejo CRECE;Medica Uruguaya;FFSP;Hospital Pasteur;Guichon Centro Auxiliar;Quebracho Policlinica;CP Paysandu CHLAEP
+null ;de Riesgo;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+null ;RANGO > 90 anos;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+null ;RANGO > 80 anos;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+null ;RANGO > 75 anos;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+null ;RANGO > 60 anos;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+null ;RANGO > 40 anos;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+null ;RANGO > 18 anos;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+null ;Total 1era Dosis;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+null ;Total 2da Dosis;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+null ;Acumulado Solicitudes Recibidas: 13762
+Marzo; ;Artigas;Colonia;Salto;Rocha;Treinta y Tres;Soriano;Canelones;Florida;Cerro Largo;Flores;San Jose;Lavalleja;Rio Negro;Tacuarembo;Durazno;Rivera;Maldonado;Montevideo;Paysandu
+null; Vacunas recibidas;3064;4597;6130;3064;1531;4597;24527;3064;4597;1531;4597;3064;3064;4597;3064;4597;7665;61363;4597
+null ; ;Hospital ASSESubCP Bella Union;Centro Tisiologico;Auditorio Municipal;Salon Comunal;Hospital Samuel Berton CHLA-EP;Centro Auxiliar ASSE;Hospital Evangelico;Hospital ASSE;Sede secundaria CCOU;Hospital ASSE CP Rosario;Villa Constitucion ASSE;Villa Constitucion Policlinica ASSE;Sindicato Medico ;Valetin Policlinica Local;LOCAL COMERCIAL Dr Soca y Brasil;HOSPITAL DE AGUDOS;Belen Policlinica CAM;Hospital del chuy;Hospital Castillos;Hospital Lascano;COMERO; Centro Cultural La Paloma;Hospital Rocha;Hospital Chuy;Hospoital Vergara;Centro Social Democratico;Estadio Municipal Centro Empleados de Comercio;Santa Clara del Olimar Centro Auxiliar de ASSE;La Charqueada Policlinica de ASSE;Hospital Dolores;Hospital Dolores 2;Mercedes CHLAEP;Cardona CAMS;Circulo Catolico Cardona;Dolores CAMS;Vista Linda Centro de barrio;MUCAM;Country ASSE;Asoc. Espanola;Centro Salud ASSE;CAAMEPA;SAPP;Salvador Allende;Centro Cultural Casa Artigas;SMI;Municipio;Hospital Pando;COMECA;Las Piedras Circulo Catolico;Club Social;Centro Auxiliar;Aeropuerto Auto Vacunatorio;CRAMI;Polideportivo IMM Las Piedras;ASSE;CP Canelones;Cerro Colorado Policlinica;Mendoza Grande Policlinica ASSE;Hospital ASSE CP Florida CHLAEP;Capilla del Sauce Policlinica;Sub CP Sdi Grande ASSE;Club 25 de agosto;Casupa Policlinica ASSE;Policlinico COMEF;UTU Gimnasio;Club Uruguay;Plaza de Deportes;Policlinica de ASSE;Ismael Cortinas Policlinica ASSE;Plaza de Deportes;Colonia Etchepare;Comision profomento Delta del Tigre;Local ex Garelli;Club de Jubilados y Pensionistas;Ciudad Rodriguez Plaza de Deportes ;Centro Proteccion de Choferes;Club de abuelos y adultos mayores;Policlinica AMSJ;Libertad Hospital ASSE;Jose Pedro varela Centro Auxiliar;Local espacio adolescente;Jose Batlle y Ordonez Centro Auxiliar;Mariscala Policliinica CAMDEL;Minas Estadio Municipal;Plaza Las Mujeres;Young CAMY Pediatria;Young Policlinica de ASSE;Bellaco Policlinica de ASSE;Fray Bentos Hospital ASSE;San Javier Policlinia de ASSE;Pazo de la Cruz Policlinica de ASSE;Policlinica de ASSElaza Las Mujeres;Hospital de Tacuarembo ;COMPLEJO BARRIOS AMORÍN;Clinica Fisioterapia;Paso de los Toros COMTA;Villa Ansina Municipio ;Las Toscas de Caraguata Polideportivo ;San Gregorio de Polanco Centro de Salud ;CP Durazno CHALEP;CAMEDUR;Hospital Dr. Emilio Penza;Sub CP Sarandi del Yi CHLAEP;Villa del Carmen Policlinica;Policlinica Blanquillo;La Paloma Policlinica;Villa del Carmen Policlinica 2;San Jorge Policlinica;Casa de la Cultura;Hospital ASSE Minas de Corrales;COMERI;CASMER;Vichadero Policlinica ASSE;Tranqueras Policlinica de ASSE;HTAL AIGUA;Pueblo Eden Centro Comunal;Policlinica AMDM-IAMPP;CAMPUS Puesto;CEDEMCAR;Jose Ignacio Policlinica de ASSE;Hospital Pan de Azucar;ANTEL ARENA 1;Hospital Militar;ANTEL ARENA 2;UNIVERSAL;Hospital de Clinicas C;Hospital de Clinicas B;Hospital de Clinicas A;Hospital Pereira Rossell;Asociacion Espanola;ANTEL ARENA 3;C.A.P. Grupo de Artilleria No. 1;Hospital Policial;ANTEL ARENA 4;Rural del Prado;ANTEL ARENA 5;Centro de Salud Cerro;Fondo Nacional de Recursos;Colegio Medico;CASMU;Sanatorio Casa de Galicia;COSEM Malvin;Circulo Catolico;Hospital Evangelico;Asociacion Espanola 2;Hospital Britanico;SMI IMPASA;CUDAM;C.A.P. Brigada de Infanteria No. 1;Policlinica Zully Sanchez;Hospital Maciel;IMM Complejo CRECE;Medica Uruguaya;FFSP;Hospital Pasteur;Guichon Centro Auxiliar;Quebracho Policlinica;CP Paysandu CHLAEP
+null ;de Riesgo;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+null ;RANGO > 90 anos;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;38;36;38;37;37;37;36;33;34;39;36;37;37;34;37;37;33;35;37;35;36;39;32;38;36;35;36;34;34;37;38;33;33;32;0;0;0
+null ;RANGO > 80 anos;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;14;15;14;15;14;14;15;17;16;13;15;14;15;16;15;15;14;16;15;16;15;13;15;14;15;16;16;16;16;15;14;17;16;15;0;0;0
+null ;RANGO > 75 anos;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+null ;RANGO > 60 anos;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+null ;RANGO > 40 anos;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+null ;RANGO > 18 anos;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+null ;Total 1era Dosis;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;51;50;51;51;50;50;50;49;49;51;50;50;51;49;51;51;47;50;51;50;50;51;47;51;50;50;51;49;49;51;51;49;49;47;0;0;0
+null ;Total 2da Dosis;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;0;1;1;1;1;1;0;1;1;1;1;1;1;1;1;1;0;0;0;0;0
+null ;Acumulado Solicitudes Recibidas: 19617

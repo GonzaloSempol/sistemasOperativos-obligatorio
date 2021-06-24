@@ -80,7 +80,7 @@ public class Log {
         String[] out = new String[7+cantRangos];
         
         Map<String, Map<String, Registro>> logMes = log.get(mes);
-        out[0]=String.valueOf(mes) + "; ";
+        out[0]= mapearMes(mes) + "; ";
         out[1] += "; Vacunas recibidas";
         out[2] += " ; "; 
         out[3] += " ;de Riesgo"; 
@@ -93,7 +93,7 @@ public class Log {
         
         out[4+cantRangos] += " " +";" + "Total 1era Dosis";
         out[5+cantRangos] += " ;Total 2da Dosis";
-        out[6+cantRangos] += " ;Total Solicitudes Recibidas: " + this.solRecibidas;
+        out[6+cantRangos] += " ;Acumulado Solicitudes Recibidas: " + this.solRecibidas;
         
         
         for (Map.Entry<String, Map<String, Registro>> d : logMes.entrySet()) {
@@ -146,5 +146,28 @@ public class Log {
     
     
     }
+    
+    public String mapearMes(int m)
+    {
+        switch(m)
+        {
+            case 0: return "Enero";
+            case 1: return "Febrero";
+            case 2: return "Marzo";
+            case 3: return "Abril";
+            case 4: return "Mayo";
+            case 5: return "Junio";
+            case 6: return "Julio";
+            case 7: return "Agosto";
+            case 8: return "Septiembre";
+            case 9: return "Octubre";
+            case 10: return "Noviembre";
+            case 11: return "Diciembre";
+            
+        
+        }
+        return "mes invalido";
+    }
+            
 
 }

@@ -16,7 +16,13 @@ public class Departamento {
     private int vacunasDisponibles;
     
 
-    
+    public Departamento(String n, float d) {
+        this.nombre = n;
+        this.vacunatorios = new LinkedList<>();
+        this.densidadPoblacional = d;
+        this.semNumVacunas = new Semaphore(1);
+        this.semPersonasxDepartamento = new Semaphore(1);
+    }
     
     
     public Departamento(String n, LinkedList v, float d) {

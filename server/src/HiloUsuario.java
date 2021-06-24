@@ -34,7 +34,7 @@ public class HiloUsuario implements Runnable {
             out.println("Ingrese su departamento:");
             String departamento = in.readLine();
 
-            out.println(ci + departamento + "  <-- Te escucho");//Respondemos al cliente un mensaje
+            //out.println(ci + departamento + "  <-- Te escucho");//Respondemos al cliente un mensaje
 
             System.out.println("[Puerto:" + clientSocket.getLocalPort() + "] El Cliente dice:" + ci + " : " + departamento);//Mostramos en pantalla lo que el cliente dice   
 
