@@ -38,7 +38,7 @@ public void agendarBatch()
 {
      for(String d : Server.departamentos.keySet()){
                         
-                        HiloAgendar h = new HiloAgendar(Server.departamentos.get(d));
+                        HiloAgendar h = new HiloAgendar(d);
                         Thread th = new Thread(h);
                         th.setPriority(Thread.MIN_PRIORITY);
                         th.start();
@@ -73,6 +73,35 @@ public void agendarBatch()
                 cal.setTime(fechaActual);
                 int vacunas=0;
                 
+                //Cierre de agenda cada 2 semanas
+                if(cal.get(Calendar.DAY_OF_MONTH) % 14 == 0)
+                {
+                       agendarBatch();
+                       System.out.println("Agendando...");
+                }
+                
+                if(cal.get(Calendar.DAY_OF_MONTH) == 1) 
+                {
+                       /* if(cal.get(Calendar.MONTH) % 2 == 1)
+                        {
+                            Server.aumentarRango();
+                        }
+                        if(cal.get(Calendar.MONTH) > 0)
+                        {
+                            Server.log.imprimirCSV(cal.get(Calendar.MONTH) -1);
+                        }else
+                        {
+                            Server.log.imprimirCSV(11);
+                        }*/
+                    
+
+                    Server.aumentarRango();
+                    Server.log.imprimirCSV(cal.get(Calendar.MONTH) -1);
+                
+                }
+                 
+                 
+                
                 switch(cal.get(Calendar.MONTH) +1)
                 {
                     //Febrero
@@ -80,11 +109,9 @@ public void agendarBatch()
                         switch(cal.get(Calendar.DAY_OF_MONTH))
                         {
                             case 26:
-                                vacunas=192000;
+                                vacunas=844;
                                 repartirVacunas(vacunas,cal.get(Calendar.MONTH));
                                 System.out.println("Llegaron " + vacunas + " vacunas");
-                                agendarBatch();
-                                System.out.println("Agendando...");
                                 break;
                         }
                         break;
@@ -92,49 +119,33 @@ public void agendarBatch()
                     case 3:
                         switch(cal.get(Calendar.DAY_OF_MONTH))
                         {
-                            case 1:
-                                Server.aumentarRango();
-                                Server.log.imprimirCSV(cal.get(Calendar.MONTH) -1);
-                                break;
                             case 10:
-                                vacunas=50000;
+                                vacunas=220;
                                 repartirVacunas(vacunas,cal.get(Calendar.MONTH));
                                 System.out.println("Llegaron " + vacunas + " vacunas");
-                                agendarBatch();
-                                System.out.println("Agendando...");
                                 break;
                              case 16:
-                                vacunas=1558000;
+                                vacunas=6845;
                                 repartirVacunas(vacunas,cal.get(Calendar.MONTH));
                                 System.out.println("Llegaron " + vacunas + " vacunas");
-                                agendarBatch();
-                                System.out.println("Agendando...");
                                 break;
                              case 17:
-                                vacunas=53310;
+                                vacunas=234;
                                 repartirVacunas(vacunas,cal.get(Calendar.MONTH));
                                 System.out.println("Llegaron " + vacunas + " vacunas");
-                                agendarBatch();
-                                System.out.println("Agendando...");
                                 break;
                              case 25:
-                                vacunas=50000;
+                                vacunas=220;
                                 repartirVacunas(vacunas,cal.get(Calendar.MONTH));
                                 System.out.println("Llegaron " + vacunas + " vacunas");
-                                agendarBatch();
-                                System.out.println("Agendando...");
                                 break;
                         }
                         break;
                     case 4:
                         switch(cal.get(Calendar.DAY_OF_MONTH))
                         {
-                            case 1:
-                                Server.aumentarRango();
-                                Server.log.imprimirCSV(cal.get(Calendar.MONTH) -1);
-                                break;
                             case 4:
-                                vacunas=48000;
+                                vacunas=211;
                                 repartirVacunas(vacunas,cal.get(Calendar.MONTH));
                                 System.out.println("Llegaron " + vacunas + " vacunas");
                                 break;
@@ -143,83 +154,29 @@ public void agendarBatch()
                     case 5:
                         switch(cal.get(Calendar.DAY_OF_MONTH))
                         {
-                            case 1:
-                                Server.aumentarRango();
-                                Server.log.imprimirCSV(cal.get(Calendar.MONTH) -1);
+                            case 8:
+                                vacunas=4393;
+                                repartirVacunas(vacunas,cal.get(Calendar.MONTH));
+                                System.out.println("Llegaron " + vacunas + " vacunas");
                                 break;
-                            
+                             case 14:
+                                vacunas=221;
+                                repartirVacunas(vacunas,cal.get(Calendar.MONTH));
+                                System.out.println("Llegaron " + vacunas + " vacunas");
+                                break; 
+                             case 15:
+                                vacunas=524;
+                                repartirVacunas(vacunas,cal.get(Calendar.MONTH));
+                                System.out.println("Llegaron " + vacunas + " vacunas");
+                                break;
+                             case 29:
+                                vacunas=2416;
+                                repartirVacunas(vacunas,cal.get(Calendar.MONTH));
+                                System.out.println("Llegaron " + vacunas + " vacunas");
+                                break;
                         }
                         break;
-                    case 6:
-                        switch(cal.get(Calendar.DAY_OF_MONTH))
-                        {
-                            case 1:
-                                Server.aumentarRango();
-                                Server.log.imprimirCSV(cal.get(Calendar.MONTH) -1);
-                                break;
-                            
-                        }
-                        break;
-                    case 7:
-                        switch(cal.get(Calendar.DAY_OF_MONTH))
-                        {
-                            case 1:
-                                Server.aumentarRango();
-                                Server.log.imprimirCSV(cal.get(Calendar.MONTH) -1);
-                                break;
-                            
-                        }
-                        break;
-                    case 8:
-                        switch(cal.get(Calendar.DAY_OF_MONTH))
-                        {
-                            case 1:
-                                Server.aumentarRango();
-                                Server.log.imprimirCSV(cal.get(Calendar.MONTH) -1);
-                                break;
-                            
-                        }
-                        break;
-                    case 9:
-                        switch(cal.get(Calendar.DAY_OF_MONTH))
-                        {
-                            case 1:
-                                Server.aumentarRango();
-                                Server.log.imprimirCSV(cal.get(Calendar.MONTH) -1);
-                                break;
-                            
-                        }
-                        break;
-                    case 10:
-                        switch(cal.get(Calendar.DAY_OF_MONTH))
-                        {
-                            case 1:
-                                Server.aumentarRango();
-                                Server.log.imprimirCSV(cal.get(Calendar.MONTH) -1);
-                                break;
-                            
-                        }
-                        break;
-                    case 11:
-                        switch(cal.get(Calendar.DAY_OF_MONTH))
-                        {
-                            case 1:
-                                Server.aumentarRango();
-                                Server.log.imprimirCSV(cal.get(Calendar.MONTH) -1);
-                                break;
-                            
-                        }
-                        break;
-                    case 12:
-                        switch(cal.get(Calendar.DAY_OF_MONTH))
-                        {
-                            case 1:
-                                Server.aumentarRango();
-                                Server.log.imprimirCSV(cal.get(Calendar.MONTH) -1);
-                                break;
-                            
-                        }
-                        break;
+                   
                 
                 }
                 

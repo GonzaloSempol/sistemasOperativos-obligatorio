@@ -21,7 +21,7 @@ public class HiloUsuario implements Runnable {
     public void run() {
         try {
 
-            System.out.println("Se conectó:" + clientSocket.getRemoteSocketAddress()); //Si pasamos a esta linea es porque un nuevo cliente se conectó
+            //System.out.println("Se conectó:" + clientSocket.getRemoteSocketAddress()); //Si pasamos a esta linea es porque un nuevo cliente se conectó
 
             ///Creamos objetos para manejar input y output 
             PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true); //Para enviar texto al cliente 
@@ -34,9 +34,9 @@ public class HiloUsuario implements Runnable {
             out.println("Ingrese su departamento:");
             String departamento = in.readLine();
 
-            //out.println(ci + departamento + "  <-- Te escucho");//Respondemos al cliente un mensaje
+            
 
-            System.out.println("[Puerto:" + clientSocket.getLocalPort() + "] El Cliente dice:" + ci + " : " + departamento);//Mostramos en pantalla lo que el cliente dice   
+            //System.out.println("[Puerto:" + clientSocket.getLocalPort() + "] El Cliente dice:" + ci + " : " + departamento);//Mostramos en pantalla lo que el cliente dice   
 
             //Validar CI
             if (Server.personasHabilitadas.containsKey(ci)) {
@@ -85,7 +85,7 @@ public class HiloUsuario implements Runnable {
             }
 
             clientSocket.close();
-            System.out.println("Se cierra el socket");
+           // System.out.println("Se cierra el socket");
 
         } catch (IOException e) {
             System.out.println("Exception caught when trying to listen on port " + clientSocket.getLocalPort() + " or listening for a connection");

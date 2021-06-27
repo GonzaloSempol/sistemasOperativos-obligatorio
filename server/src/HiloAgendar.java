@@ -15,42 +15,47 @@ import java.util.logging.Logger;
  */
 public class HiloAgendar implements Runnable{
 
-    Departamento departamento;
+    String dep;
+   
 
-    public HiloAgendar(Departamento departamento) {
-        this.departamento = departamento;
+    public HiloAgendar(String departamento) {
+        this.dep = departamento;
     }
     
     @Override
     public void run() {
+       
         
-        PriorityQueue<Persona> paraAgendarDpto = Server.paraAgendar.get(departamento.getNombre());
         try {
             
-          
-            departamento.getSemNumVacunas().acquire();
             
-            Boolean necesitoAgendar = false;      
-            Persona p = null;
+            
+            Server.departamentos.get(dep).getSemNumVacunas().acquire();
+            Departamento departamento = Server.departamentos.get(dep); 
+            
+                  
+            
             while(departamento.getVacunasDisponibles() > 1) {
                 
                 departamento.getSemPersonasxDepartamento().acquire();
-                if (!paraAgendarDpto.isEmpty())
+                
+                if (!Server.paraAgendar.get(departamento.getNombre()).isEmpty())
                 {                  
-                     p = paraAgendarDpto.remove();
-                     necesitoAgendar=true;
+                     Persona p = (Persona)Server.paraAgendar.get(departamento.getNombre()).remove();
+                     
+                     
                      departamento.getSemPersonasxDepartamento().release();
+                     departamento.agendar(p);               
+                     //System.out.println("Antes: DEp:" + departamento.getNombre() + ":" + departamento.getVacunasDisponibles());
+                     departamento.substractVacunas();
+                     //System.out.println("Despues: DEp:" + departamento.getNombre() + ":" + departamento.getVacunasDisponibles());
+                     
                 }else{
                     departamento.getSemPersonasxDepartamento().release();
                     break;
                 }
                 
-                if (necesitoAgendar)
-                {
-                    departamento.agendar(p);               
-                    departamento.setVacunasDisponibles(departamento.getVacunasDisponibles() - 2);
-                    necesitoAgendar=false;
-                }    
+                  
              
             }
             

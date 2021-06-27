@@ -24,8 +24,10 @@ private int mes;
             try {
                 d.getSemNumVacunas().acquire();
                 aRepartir -= (int) Math.floor(d.getDensidadPoblacional() * cantVacunas);
-                int vacunasAsignadas = d.getVacunasDisponibles() + aRepartir ;        
+                int vacunasAsignadas = d.getVacunasDisponibles() + (int)Math.floor((d.getDensidadPoblacional() * cantVacunas)) ;        
+                
                 d.setVacunasDisponibles(vacunasAsignadas);
+                System.out.println("DEp:" + d.getNombre() + ":" + d.getVacunasDisponibles());
                 d.getSemNumVacunas().release();
 
                 Server.log.getSemLogVac().acquire();

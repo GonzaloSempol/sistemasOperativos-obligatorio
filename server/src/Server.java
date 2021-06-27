@@ -23,13 +23,13 @@ public class Server {
     public static Reloj r = new Reloj();
     public static int[] rangos = {90,80,75,60,40,18};
     public static int rangoActual=rangos[0];
-    public static int i=0;
+    public static int indiceRango=0;
     
     public static void aumentarRango()
     {
-        if(i < Server.rangos.length -1 ){
-                i++;
-                Server.rangoActual=Server.rangos[i];
+        if(indiceRango < Server.rangos.length -1 ){
+                indiceRango++;
+                Server.rangoActual=Server.rangos[indiceRango];
                 System.out.println("El rango habilitado es mayores de: "+ Server.rangoActual + " años.");
 
         }
@@ -79,7 +79,7 @@ public class Server {
         HiloReloj hilor = new HiloReloj(r);
         Thread threadHilor = new Thread(hilor);
         threadHilor.setPriority(Thread.MAX_PRIORITY);
-        threadHilor.start(); //cada 5 segundos abrimos la agenda
+        threadHilor.start(); 
         
 
         //Fin datos prueba

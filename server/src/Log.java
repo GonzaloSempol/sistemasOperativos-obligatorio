@@ -80,28 +80,29 @@ public class Log {
         String[] out = new String[7+cantRangos];
         
         Map<String, Map<String, Registro>> logMes = log.get(mes);
-        out[0]= mapearMes(mes) + "; ";
-        out[1] += "; Vacunas recibidas";
-        out[2] += " ; "; 
-        out[3] += " ;de Riesgo"; 
+        out[0] = mapearMes(mes) + ";;";
+        out[1] = "; Vacunas recibidas;";
+        out[2] = " ; "; 
+        out[3] = " ;de Riesgo"; 
         
         
         for(int j=0; j<cantRangos; j++)
         {
-            out[j+4] += " " +";"+"RANGO > " + Server.rangos[j] + " anos"; 
+            out[j+4] = " " +";"+"RANGO > " + Server.rangos[j] + " anos"; 
         }
         
-        out[4+cantRangos] += " " +";" + "Total 1era Dosis";
-        out[5+cantRangos] += " ;Total 2da Dosis";
-        out[6+cantRangos] += " ;Acumulado Solicitudes Recibidas: " + this.solRecibidas;
+        out[4+cantRangos] = " " +";" + "Total 1era Dosis";
+        out[5+cantRangos] = " ;Total 2da Dosis";
+        out[6+cantRangos] = " ;Acumulado Solicitudes Recibidas: " + this.solRecibidas;
         
         
         for (Map.Entry<String, Map<String, Registro>> d : logMes.entrySet()) {
-                out[0] += ";" + d.getKey();
-                out[1] += ";" + this.logVacunas.get(mes).get(d.getKey());
+                out[0] += d.getKey();
+                out[1] += this.logVacunas.get(mes).get(d.getKey());
                 
                 for (Map.Entry<String, Registro> v : d.getValue().entrySet()){
-                    
+                    out[0] += ";"; 
+                    out[1] += ";"; 
                     out[2] += ";" + v.getKey();
                     out[3] += ";" + v.getValue().getDeRiesgo();
                     
@@ -122,6 +123,9 @@ public class Log {
         ManejadorArchivosGenerico.escribirArchivo("C:\\git\\Server\\Obligatorio-Sistemas-Operativos-\\server\\src\\log.csv", out);
     
     }
+    
+    
+   
 
     public long getSolRecibidas() {
         return solRecibidas;

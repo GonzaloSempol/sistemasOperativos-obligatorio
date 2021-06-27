@@ -22,6 +22,7 @@ public class Departamento {
         this.densidadPoblacional = d;
         this.semNumVacunas = new Semaphore(1);
         this.semPersonasxDepartamento = new Semaphore(1);
+        this.vacunasDisponibles=0;
     }
     
     
@@ -31,6 +32,7 @@ public class Departamento {
         this.densidadPoblacional = d;
         this.semNumVacunas = new Semaphore(1);
         this.semPersonasxDepartamento = new Semaphore(1);
+        this.vacunasDisponibles=0;
     }
 
     public LinkedList<Vacunatorio> getVacunatorios() {
@@ -110,6 +112,12 @@ public class Departamento {
         }
         return min;
 
+    }
+    
+    public void substractVacunas()
+    {
+        this.vacunasDisponibles -=2;
+    
     }
     
     
