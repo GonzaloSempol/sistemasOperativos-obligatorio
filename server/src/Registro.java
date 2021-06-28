@@ -1,29 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author gonzalo.sempol
- */
+//Clase auxiliar del log
 public class Registro {
-    
+
     private int deRiesgo;
     private int[] personasPorRangos;
     private int cantDosis1;
     private int cantDosis2;
-    
-    
-    
-    
+
     public Registro() {
         this.deRiesgo = 0;
-        this.personasPorRangos = new int[] {0,0,0,0,0,0};
+        this.personasPorRangos = new int[]{0, 0, 0, 0, 0, 0};
         this.cantDosis1 = 0;
         this.cantDosis2 = 0;
-       
     }
 
     public int getDeRiesgo() {
@@ -31,7 +18,7 @@ public class Registro {
     }
 
     public void addDeRiesgo() {
-        this.deRiesgo ++;
+        this.deRiesgo++;
     }
 
     public int[] getPersonasPorRangos() {
@@ -39,7 +26,7 @@ public class Registro {
     }
 
     public void addPersonaPorRango(int rango) {
-        this.personasPorRangos[rango] ++;
+        this.personasPorRangos[rango]++;
     }
 
     public int getCantDosis1() {
@@ -47,7 +34,7 @@ public class Registro {
     }
 
     public void addCantDosis1() {
-        this.cantDosis1 ++;
+        this.cantDosis1++;
     }
 
     public int getCantDosis2() {
@@ -55,11 +42,7 @@ public class Registro {
     }
 
     public void addCantDosis2() {
-        this.cantDosis2 ++;
+        this.cantDosis2++;
     }
-    
-    
-    
-    
-    
+
 }

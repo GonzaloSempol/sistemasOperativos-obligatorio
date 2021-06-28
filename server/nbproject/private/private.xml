@@ -4,14 +4,18 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/git/Server/Obligatorio-Sistemas-Operativos-/server/src/HiloAgendar.java</file>
+            <file>file:/C:/git/Server/Obligatorio-Sistemas-Operativos-/server/src/HiloRepartirVacunas.java</file>
+            <file>file:/C:/git/Server/Obligatorio-Sistemas-Operativos-/server/src/Log.java</file>
+            <file>file:/C:/git/Server/Obligatorio-Sistemas-Operativos-/server/src/Registro.java</file>
+            <file>file:/C:/git/Server/Obligatorio-Sistemas-Operativos-/server/src/HiloReloj.java</file>
             <file>file:/C:/git/Server/Obligatorio-Sistemas-Operativos-/server/src/Persona.java</file>
             <file>file:/C:/git/Server/Obligatorio-Sistemas-Operativos-/server/src/Server.java</file>
             <file>file:/C:/git/Server/Obligatorio-Sistemas-Operativos-/server/src/Departamento.java</file>
             <file>file:/C:/git/Server/Obligatorio-Sistemas-Operativos-/server/src/HiloCanal.java</file>
             <file>file:/C:/git/Server/Obligatorio-Sistemas-Operativos-/server/src/Vacunatorio.java</file>
             <file>file:/C:/git/Server/Obligatorio-Sistemas-Operativos-/server/src/HiloUsuario.java</file>
-            <file>file:/C:/git/Server/Obligatorio-Sistemas-Operativos-/server/src/HiloReloj.java</file>
             <file>file:/C:/git/Server/Obligatorio-Sistemas-Operativos-/server/src/Reloj.java</file>
+            <file>file:/C:/git/Server/Obligatorio-Sistemas-Operativos-/server/src/ManejadorArchivosGenerico.java</file>
         </group>
     </open-files>
 </project-private>
